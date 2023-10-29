@@ -2,14 +2,16 @@ extends CharacterBody2D
 
 # max Movement Speed of the player
 const maxSpeed = 200
-const acceleration = 1000
-const friction = 1500
+const acceleration = 5000
+const friction = 5000
 
 # direction of the player
 var current_direcition = "none"
 
 # input by player
 var input = Vector2.ZERO
+
+
 
 # get Input by player
 func get_input():
@@ -71,35 +73,40 @@ func play_animation(movement):
 	var direction = current_direcition
 	var animation = $AnimatedSprite2D
 	
-	# player is walking right
-	if direction == "right":
-		#animation.flip_h = false
-		if movement == 1:
-			animation.play("running_right")
-		else:
-			animation.play("idle_right")
+	if direction != "none":
 	
-	# player is walking left
-	if direction == "left":
-		#animation.flip_h = true
-		if movement == 1:
-			animation.play("running_left")
-		else:
-			animation.play("idle_left")
-
-	# player is walking up
-	if direction == "up":
-		#animation.flip_h = false
-		if movement == 1:
-			animation.play("running_left")
-		else:
-			animation.play("idle_left")
-	
-	# player is walking down
-	if direction == "down":
-		#animation.flip_h = false
-		if movement == 1:
-			animation.play("running_right")
-		else:
-			animation.play("idle_right")
+		# player is walking right
+		if direction == "right":
+			#animation.flip_h = false
+			if movement == 1:
+				animation.play("running_right")
+			else:
+				animation.play("idle_right")
 		
+		# player is walking left
+		if direction == "left":
+			#animation.flip_h = true
+			if movement == 1:
+				animation.play("running_left")
+			else:
+				animation.play("idle_left")
+
+		# player is walking up
+		if direction == "up":
+			#animation.flip_h = false
+			if movement == 1:
+				animation.play("running_left")
+			else:
+				animation.play("idle_left")
+		
+		# player is walking down
+		if direction == "down":
+			#animation.flip_h = false
+			if movement == 1:
+				animation.play("running_right")
+			else:
+				animation.play("idle_right")
+				
+	else:
+		animation.play("idle_right")
+			

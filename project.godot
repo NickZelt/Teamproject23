@@ -11,12 +11,15 @@ config_version=5
 [application]
 
 config/name="Teamprojekt++"
-run/main_scene="res://scenes/player.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/godot/icon.svg"
 
 [display]
 
+window/size/viewport_width=2500
+window/size/viewport_height=2000
+window/size/mode=4
 window/stretch/scale=4.0
 
 [rendering]
