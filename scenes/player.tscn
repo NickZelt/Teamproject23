@@ -480,7 +480,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running_left",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -538,7 +538,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running_right",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -617,11 +617,11 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
+position = Vector2(250, 250)
 script = ExtResource("1_wm3n7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_avv26")
-animation = &"idle_left"
-speed_scale = 1.5
+animation = &"idle_right"
