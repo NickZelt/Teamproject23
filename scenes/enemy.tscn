@@ -1,7 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cu461pr2e02ux"]
+[gd_scene load_steps=33 format=3 uid="uid://cu461pr2e02ux"]
 
 [ext_resource type="Texture2D" uid="uid://cunx5i6xua113" path="res://assets/art/prototyp/Dino1.png" id="1_gofs6"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_luoma"]
+[ext_resource type="Texture2D" uid="uid://cyvqsiykb0u8u" path="res://assets/art/prototyp/emote_faceHappy.png" id="3_lb8ex"]
+[ext_resource type="Texture2D" uid="uid://bcogjg6rw18yp" path="res://assets/art/prototyp/emote_faceAngry.png" id="4_yx7lv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xyq3"]
 atlas = ExtResource("1_gofs6")
@@ -128,7 +130,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_etvix")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 10.0
 }, {
@@ -209,14 +211,18 @@ size = Vector2(10, 4)
 radius = 11.0
 
 [node name="enemy" type="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
 script = ExtResource("1_luoma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pglfb")
-animation = &"idle"
-frame_progress = 0.267646
+animation = &"hit"
+frame = 2
+frame_progress = 1.0
 
 [node name="detection_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -228,11 +234,29 @@ position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_hjm3c")
 
 [node name="enemy_hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
 shape = SubResource("CircleShape2D_hqntq")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
+
+[node name="emotionHappy" type="TextureRect" parent="."]
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 60.0
+offset_bottom = 70.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_lb8ex")
+
+[node name="emotionAngry" type="TextureRect" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 60.0
+offset_bottom = 70.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yx7lv")
 
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(0, 1, 0, 1)

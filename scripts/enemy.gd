@@ -32,11 +32,15 @@ func _physics_process(delta):
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
+	$emotionHappy.hide()
+	$emotionAngry.show()
 
 
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
+	$emotionHappy.show()
+	$emotionAngry.hide()
 	
 	
 func enemy():
@@ -47,14 +51,15 @@ func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
 		player_in_attack_zone = true
 
-
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
 		player_in_attack_zone = false
 		
 		
+		
 func deal_with_damage():
 	if player_in_attack_zone and Game.player_current_attack == true:
+		
 		if can_take_damage == true:
 			health = health - 20
 			$take_damage_cooldown.start()
