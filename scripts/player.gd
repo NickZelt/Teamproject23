@@ -31,6 +31,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	update_health()
 	
 	if health <= 0:
 		player_alive = false # add death screen
@@ -147,11 +148,11 @@ func enemy_attack():
 	if enemy_in_attack_range and enemy_attack_cooldown == true:
 		health = health - 10
 		enemy_attack_cooldown = false
-		$attack_cooldown.start()
+		$take_damage_cooldown.start()
 		print(health)
 
 
-func _on_attack_cooldown_timeout():
+func _on_take_damage_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
 func attack():
@@ -184,3 +185,28 @@ func _on_deal_attack_timer_timeout():
 	
 func _on_back_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+# Health system
+func update_health():
+	# update life from player to healthbar
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	# full life -> health bar wont be shown
+	if health >= 100:
+		healthbar.visible = false
+	else: # health bar visible when not full life
+		healthbar.visible = true
+
+# Health regeneration
+func _on_regeneration_timer_timeout():
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0
+
+
+

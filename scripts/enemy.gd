@@ -10,6 +10,7 @@ var can_take_damage = true
 
 func _physics_process(delta):
 	deal_with_damage()
+	update_health()
 	
 	# Player entered detection area
 	if player_chase:
@@ -58,10 +59,22 @@ func deal_with_damage():
 			health = health - 20
 			$take_damage_cooldown.start()
 			can_take_damage = false
-			print("Slime Health: ", health)
+			print("Enemy Health: ", health)
 			if health <= 0:
 				self.queue_free() # eneme dead
 
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+	
+# Health system
+func update_health():
+	# update life from enemy to healthbar
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	# full life -> health bar wont be shown
+	if health >= 100:
+		healthbar.visible = false
+	else: # health bar visible when not full life
+		healthbar.visible = true
