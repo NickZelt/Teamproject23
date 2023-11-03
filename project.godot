@@ -21,10 +21,14 @@ Game="*res://scripts/game.gd"
 
 [display]
 
-window/size/mode=3
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
 window/size/initial_screen=2
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
-window/vsync/vsync_mode=0
 
 [input]
 
