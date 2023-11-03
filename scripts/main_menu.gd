@@ -18,13 +18,13 @@ func _on_play_pressed():
 
 # Option Button
 func _on_options_pressed():
-	$MarginContainer/Main.hide()
-	$MarginContainer/Options.show()
+	$MainMenu.hide()
+	$OptionMenu.show()
 
 # Credit Button
 func _on_credits_pressed():
-	$MarginContainer/Main.hide()
-	$MarginContainer/Credits.show()
+	$MainMenu.hide()
+	$Credits.show()
 
 # Quit game Button
 func _on_quit_pressed():
@@ -35,12 +35,15 @@ func _on_quit_pressed():
 func _on_volume_pressed():
 	pass # Replace with function body.
 
+func _on_magic_button_pressed():
+	pass # Replace with function body.
+
 # Back to Main Menu Button
-func _on_back_pressed():
-	$MarginContainer/Options.hide()
-	$MarginContainer/Main.show()
+func _on_back_to_main_menu_pressed():
+	$MainMenu.show()
+	$OptionMenu.hide()
 	
 #################### Credit Menu ####################
-func _on_credit_back_pressed():
-	$MarginContainer/Credits.hide()
-	$MarginContainer/Main.show()
+func _on_credits_back_to_menu_pressed():
+	$MainMenu.show()
+	$Credits.hide()
