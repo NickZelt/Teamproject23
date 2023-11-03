@@ -1,7 +1,8 @@
-[gd_scene load_steps=84 format=3 uid="uid://0x1enrtrhxnk"]
+[gd_scene load_steps=87 format=3 uid="uid://0x1enrtrhxnk"]
 
 [ext_resource type="Texture2D" uid="uid://d2xnwfbp425it" path="res://assets/art/prototyp/placehold_main.png" id="1_pnd58"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wm3n7"]
+[ext_resource type="FontFile" uid="uid://4c2y0qlocwh0" path="res://assets/fonts/upheavtt.ttf" id="3_0ictk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amnk0"]
 atlas = ExtResource("1_pnd58")
@@ -616,12 +617,55 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l07bw"]
+size = Vector2(24, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdyg8"]
+radius = 26.0192
+
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(250, 250)
+collision_layer = 3
 script = ExtResource("1_wm3n7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_avv26")
-animation = &"idle_right"
+animation = &"slay_right_weapon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_l07bw")
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_bdyg8")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(2, 2)
+
+[node name="BackToMainMenu" type="Button" parent="Camera2D"]
+offset_left = -481.0
+offset_top = -271.0
+offset_right = -179.0
+offset_bottom = -240.0
+theme_override_fonts/font = ExtResource("3_0ictk")
+theme_override_font_sizes/font_size = 25
+text = "Zurück zum Hauptmenü
+"
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="pressed" from="Camera2D/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
