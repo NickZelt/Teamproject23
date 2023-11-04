@@ -18,6 +18,7 @@ config/icon="res://assets/godot/icon.svg"
 [autoload]
 
 Game="*res://scripts/game.gd"
+Main="*res://scripts/main.gd"
 
 [display]
 

@@ -184,7 +184,8 @@ func _on_deal_attack_timer_timeout():
 	attack_in_progress = false
 	
 func _on_back_to_main_menu_pressed():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	#get_tree().change_scene_to_file("res://scenes/main.tscn")
+	Main.change_scene.emit("res://scenes/main.tscn")
 
 
 # Health system
