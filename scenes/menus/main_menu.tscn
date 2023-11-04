@@ -1,20 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dos7dlsh6ikrg"]
+[gd_scene load_steps=6 format=3 uid="uid://dos7dlsh6ikrg"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gds5f"]
 [ext_resource type="VideoStream" path="res://assets/others/main_menu1.ogv" id="2_iq12j"]
 [ext_resource type="AudioStream" uid="uid://cdc3cscrmw0nf" path="res://assets/sound/music/kim-lightyear-legends-109307.mp3" id="3_8xo1g"]
 [ext_resource type="FontFile" uid="uid://da3062jus3pln" path="res://assets/fonts/Crang.ttf" id="4_14pno"]
+[ext_resource type="FontFile" uid="uid://4c2y0qlocwh0" path="res://assets/fonts/upheavtt.ttf" id="5_0i0d2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.53, 0.53)
 script = ExtResource("1_gds5f")
 
 [node name="Control" type="Control" parent="."]
@@ -44,22 +42,21 @@ autoplay = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8xo1g")
 volume_db = -5.0
-autoplay = true
 
 [node name="TitleText" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -495.0
-offset_top = -343.868
-offset_right = 495.0
-offset_bottom = -264.868
+offset_left = -560.5
+offset_top = 88.0
+offset_right = 560.5
+offset_bottom = 177.0
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_14pno")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 85
 text = "Teamprojekt++   2023"
 
 [node name="VersionNumber" type="Label" parent="."]
@@ -69,84 +66,192 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 587.792
-offset_top = 406.076
-offset_right = 686.792
-offset_bottom = 432.076
+offset_left = -107.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = -6.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Version 0.1.2"
+text = "Version 0.1.3"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MainMenu" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -50.5
-offset_right = 56.5
-offset_bottom = 50.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-pivot_offset = Vector2(56, 50)
 
-[node name="Main" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="Play" type="Button" parent="MarginContainer/Main"]
-custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
-layout_mode = 2
+[node name="Play" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -39.0
+offset_right = 235.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
 text = "Starten"
 
-[node name="Options" type="Button" parent="MarginContainer/Main"]
-layout_mode = 2
+[node name="Options" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = 49.0
+offset_right = 235.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
 text = "Einstellungen"
 
-[node name="Credits" type="Button" parent="MarginContainer/Main"]
-layout_mode = 2
+[node name="Credits" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = 137.0
+offset_right = 235.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
 text = "Credits"
 
-[node name="Quit" type="Button" parent="MarginContainer/Main"]
-layout_mode = 2
+[node name="Quit" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = 225.0
+offset_right = 235.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
 text = "Beenden"
 
-[node name="Options" type="VBoxContainer" parent="MarginContainer"]
+[node name="OptionMenu" type="Control" parent="."]
 visible = false
-layout_mode = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Volume" type="Button" parent="MarginContainer/Options"]
+[node name="Volume" type="Button" parent="OptionMenu"]
 layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 705.0
+offset_top = 473.0
+offset_right = 1175.0
+offset_bottom = 535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
 text = "Lautstärke"
 
-[node name="Back" type="Button" parent="MarginContainer/Options"]
+[node name="MagicButton" type="Button" parent="OptionMenu"]
 layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 705.0
+offset_top = 577.0
+offset_right = 1175.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
+text = "Magic"
+
+[node name="BackToMainMenu" type="Button" parent="OptionMenu"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 705.0
+offset_top = 681.0
+offset_right = 1175.0
+offset_bottom = 743.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
 text = "Zurück"
 
-[node name="Credits" type="VBoxContainer" parent="MarginContainer"]
+[node name="Credits" type="Control" parent="."]
 visible = false
-layout_mode = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/Credits"]
+[node name="CreditsBackToMenu" type="Button" parent="Credits"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Main Menu Music:
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 705.0
+offset_top = 681.0
+offset_right = 1175.0
+offset_bottom = 743.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0i0d2")
+theme_override_font_sizes/font_size = 60
+text = "Zurück"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
+offset_left = 724.0
+offset_top = 382.0
+offset_right = 1189.0
+offset_bottom = 701.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_0i0d2")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]
+Main Menu Music:
 Kim Lightyear
 from Pixabay"
 
-[node name="CreditBack" type="Button" parent="MarginContainer/Credits"]
-layout_mode = 2
-text = "Zurück"
-
-[connection signal="pressed" from="MarginContainer/Main/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/Main/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/Main/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/Main/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MarginContainer/Options/Volume" to="." method="_on_volume_pressed"]
-[connection signal="pressed" from="MarginContainer/Options/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="MarginContainer/Credits/CreditBack" to="." method="_on_credit_back_pressed"]
+[connection signal="pressed" from="MainMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenu/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainMenu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="OptionMenu/Volume" to="." method="_on_volume_pressed"]
+[connection signal="pressed" from="OptionMenu/MagicButton" to="." method="_on_magic_button_pressed"]
+[connection signal="pressed" from="OptionMenu/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="Credits/CreditsBackToMenu" to="." method="_on_credits_back_to_menu_pressed"]
