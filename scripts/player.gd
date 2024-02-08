@@ -134,9 +134,6 @@ func play_animation(movement):
 		animation.play("idle_left")
 			
 
-func player():
-	pass
-
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = true
@@ -152,7 +149,6 @@ func enemy_attack():
 		enemy_attack_cooldown = false
 		$take_damage_cooldown.start()
 		print(health)
-
 
 func _on_take_damage_cooldown_timeout():
 	enemy_attack_cooldown = true
@@ -194,7 +190,6 @@ func _on_back_to_main_menu_pressed():
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
 	Main.change_scene.emit("res://scenes/main.tscn")
 
-
 # Health system
 func update_health():
 	# update life from player to healthbar
@@ -216,5 +211,10 @@ func _on_regeneration_timer_timeout():
 	if health <= 0:
 		health = 0
 
+# adds collected item to the inventory
 func collect(item):
 	inventory.insert(item)
+	
+# Method to check for player
+func player():
+	pass
