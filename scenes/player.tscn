@@ -213,7 +213,7 @@ animations = [{
 size = Vector2(24, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdyg8"]
-radius = 26.0192
+radius = 11.0454
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -225,7 +225,7 @@ script = ExtResource("1_wm3n7")
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_cv161")
 animation = &"slay_left_weapon"
-frame_progress = 0.106852
+frame_progress = 0.872976
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)

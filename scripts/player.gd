@@ -156,24 +156,29 @@ func _on_take_damage_cooldown_timeout():
 	
 func attack():
 	var direction = current_direcition
+	var animation = $AnimatedSprite2D
 	
 	if Input.is_action_just_pressed("attack"):
 		Game.player_current_attack = true
 		attack_in_progress = true
 		if direction == "right":
-			$AnimatedSprite2D.play("slay_right_weapon")
+			animation.flip_h = true
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 			
 		if direction == "left":
-			$AnimatedSprite2D.play("slay_left_weapon")
+			animation.flip_h = false
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 			
 		if direction == "down":
-			$AnimatedSprite2D.play("slay_right_weapon")
+			animation.flip_h = true
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 			
 		if direction == "up":
-			$AnimatedSprite2D.play("slay_left_weapon")
+			animation.flip_h = false
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 
 
@@ -207,6 +212,4 @@ func _on_regeneration_timer_timeout():
 			health = 100
 	if health <= 0:
 		health = 0
-
-
 
