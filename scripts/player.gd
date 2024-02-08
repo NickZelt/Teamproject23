@@ -94,16 +94,16 @@ func play_animation(movement):
 	
 		# player is walking right
 		if direction == "right":
-			#animation.flip_h = false
+			animation.flip_h = true
 			if movement == 1:
-				animation.play("running_right")
+				animation.play("running_left")
 			elif movement == 0:
 				if attack_in_progress == false:
-					animation.play("idle_right")
+					animation.play("idle_left")
 		
 		# player is walking left
 		if direction == "left":
-			#animation.flip_h = true
+			animation.flip_h = false
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
@@ -112,7 +112,6 @@ func play_animation(movement):
 
 		# player is walking up
 		if direction == "up":
-			#animation.flip_h = false
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
@@ -121,15 +120,15 @@ func play_animation(movement):
 		
 		# player is walking down
 		if direction == "down":
-			#animation.flip_h = false
 			if movement == 1:
-				animation.play("running_right")
+				animation.play("running_left")
 			elif movement == 0:
 				if attack_in_progress == false:
-					animation.play("idle_right")
+					animation.play("idle_left")
 				
 	else:
-		animation.play("idle_right")
+		animation.flip_h = true
+		animation.play("idle_left")
 			
 
 func player():
