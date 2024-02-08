@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var inventory: Inventory
+
+
 # max Movement Speed of the player
 const maxSpeed = 200
 const acceleration = 5000
@@ -213,3 +216,5 @@ func _on_regeneration_timer_timeout():
 	if health <= 0:
 		health = 0
 
+func collect(item):
+	inventory.insert(item)

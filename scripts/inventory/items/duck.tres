@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dgtilqupef1yi"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_436vj"]
+[ext_resource type="Texture2D" uid="uid://dpep50ubiqm21" path="res://assets/art/items/shelfitems/gummiente.png" id="2_ln65w"]
+
+[resource]
+script = ExtResource("1_436vj")
+name = "duck"
+texture = ExtResource("2_ln65w")

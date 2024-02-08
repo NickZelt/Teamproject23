@@ -3,6 +3,9 @@ extends Node2D
 var state = "3items" # animation name with full shelf
 var player_in_area = false
 
+@export var item: InventoryItem
+var player = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -40,10 +43,12 @@ func _on_pickable_area_body_entered(body):
 	var key_animation = $e_key_animation
 	if body.has_method("player"):
 		player_in_area = true
+		player = body
 		# only show key animation above shelf when something is in the shelf
 		if state != "0items":
 			key_animation.visible = true
 			key_animation.play("key_animation")
+			player.collect(item)
 		
 # player left area to pick items from the shelf
 func _on_pickable_area_body_exited(body):

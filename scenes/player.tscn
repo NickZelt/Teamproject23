@@ -1,8 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://0x1enrtrhxnk"]
+[gd_scene load_steps=35 format=3 uid="uid://0x1enrtrhxnk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wm3n7"]
 [ext_resource type="Texture2D" uid="uid://c676rnm3x37vm" path="res://assets/art/characters/mainchar/Main_Character.png" id="2_fucfu"]
+[ext_resource type="Resource" uid="uid://dyql4ar8f0qb4" path="res://scripts/inventory/playerInventory.tres" id="2_npnym"]
 [ext_resource type="FontFile" uid="uid://4c2y0qlocwh0" path="res://assets/fonts/upheavtt.ttf" id="3_0ictk"]
+[ext_resource type="PackedScene" uid="uid://se12sg80qkfk" path="res://scripts/inventory/inventory_ui.tscn" id="5_dqah5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf10u"]
 atlas = ExtResource("2_fucfu")
@@ -220,6 +222,7 @@ y_sort_enabled = true
 position = Vector2(250, 250)
 collision_layer = 3
 script = ExtResource("1_wm3n7")
+inventory = ExtResource("2_npnym")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
@@ -247,10 +250,10 @@ ignore_rotation = false
 zoom = Vector2(2, 2)
 
 [node name="BackToMainMenu" type="Button" parent="Camera2D"]
-offset_left = -481.0
-offset_top = -271.0
-offset_right = -179.0
-offset_bottom = -240.0
+offset_left = -286.0
+offset_top = -160.0
+offset_right = 16.0
+offset_bottom = -129.0
 theme_override_fonts/font = ExtResource("3_0ictk")
 theme_override_font_sizes/font_size = 25
 text = "Zurück zum Hauptmenü
@@ -268,6 +271,17 @@ show_percentage = false
 [node name="regeneration_timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Inventory_UI" parent="." instance=ExtResource("5_dqah5")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -109.0
+offset_top = 124.0
+offset_right = -109.0
+offset_bottom = 124.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

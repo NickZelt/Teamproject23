@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=18 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
 [ext_resource type="PackedScene" uid="uid://0x1enrtrhxnk" path="res://scenes/player.tscn" id="3_p4kr6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c3iv4vad00m7r" path="res://assets/art/tiles/shelfs/Schrank_Leer.png" id="6_05n7x"]
 [ext_resource type="Texture2D" uid="uid://crmm17gpjsut7" path="res://assets/art/tiles/19_Hospital_32x32.png" id="6_j111j"]
 [ext_resource type="PackedScene" uid="uid://xxdv7epd0p3c" path="res://scenes/shelfs/shelf_ducks.tscn" id="8_64jgl"]
+[ext_resource type="PackedScene" uid="uid://j2jx7fhc0uwx" path="res://scenes/collectibles/collectable_apple.tscn" id="10_ussdj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie130"]
 texture = ExtResource("2_y6mg7")
@@ -19585,3 +19586,12 @@ position = Vector2(-322, 267)
 
 [node name="shelf_ducks" parent="." instance=ExtResource("8_64jgl")]
 position = Vector2(-192, 210)
+
+[node name="collectable_apple" parent="." instance=ExtResource("10_ussdj")]
+position = Vector2(-72, 199)
+
+[node name="collectable_apple2" parent="." instance=ExtResource("10_ussdj")]
+position = Vector2(-313, 124)
+
+[node name="collectable_apple3" parent="." instance=ExtResource("10_ussdj")]
+position = Vector2(287, 150)
