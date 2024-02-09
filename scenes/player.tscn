@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://0x1enrtrhxnk"]
+[gd_scene load_steps=33 format=3 uid="uid://0x1enrtrhxnk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wm3n7"]
 [ext_resource type="Texture2D" uid="uid://c676rnm3x37vm" path="res://assets/art/characters/mainchar/Main_Character.png" id="2_fucfu"]
@@ -21,10 +21,6 @@ region = Rect2(96, 96, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h274m"]
 atlas = ExtResource("2_fucfu")
 region = Rect2(144, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sd14x"]
-atlas = ExtResource("2_fucfu")
-region = Rect2(192, 96, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aiblo"]
 atlas = ExtResource("2_fucfu")
@@ -57,10 +53,6 @@ region = Rect2(288, 48, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yt0p"]
 atlas = ExtResource("2_fucfu")
 region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bq4j"]
-atlas = ExtResource("2_fucfu")
-region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6pows"]
 atlas = ExtResource("2_fucfu")
@@ -124,13 +116,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h274m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sd14x")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit_left",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,9 +152,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_3yt0p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4bq4j")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6pows")
 }, {
 "duration": 1.0,
@@ -183,7 +169,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1f713")
 }],
-"loop": true,
+"loop": false,
 "name": &"running_left",
 "speed": 12.0
 }, {
@@ -206,20 +192,21 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ns7a7")
 }],
-"loop": true,
+"loop": false,
 "name": &"slay_left_weapon",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l07bw"]
 size = Vector2(24, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdyg8"]
-radius = 11.0454
+radius = 15.0
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(250, 250)
+disable_mode = 1
 collision_layer = 3
 script = ExtResource("1_wm3n7")
 inventory = ExtResource("2_npnym")
@@ -228,22 +215,23 @@ inventory = ExtResource("2_npnym")
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_cv161")
 animation = &"slay_left_weapon"
-frame_progress = 0.872976
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_l07bw")
 
 [node name="player_hitbox" type="Area2D" parent="."]
+gravity_point = true
+gravity = -4096.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_bdyg8")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="deal_attack_timer" type="Timer" parent="."]
-wait_time = 0.75
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false

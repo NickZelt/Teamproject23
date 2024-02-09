@@ -19582,7 +19582,7 @@ position = Vector2(1, 134)
 [node name="Node" type="Node" parent="."]
 
 [node name="enemy" parent="Node" instance=ExtResource("4_dces7")]
-position = Vector2(-322, 267)
+position = Vector2(-212, 126)
 
 [node name="shelf_ducks" parent="." instance=ExtResource("8_64jgl")]
 position = Vector2(-192, 210)

@@ -98,7 +98,7 @@ position = Vector2(-2.84217e-14, -42)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_une5u")
 animation = &"key_animation"
-frame_progress = 0.337004
+frame_progress = 0.312075
 
 [node name="pickable_area" type="Area2D" parent="."]
 

@@ -101,8 +101,9 @@ func play_animation(movement):
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
+				if attack_in_progress == false and enemy_attack_cooldown == true:
 					animation.play("idle_left")
+					
 		
 		# player is walking left
 		if direction == "left":
@@ -110,30 +111,33 @@ func play_animation(movement):
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
+				if attack_in_progress == false and enemy_attack_cooldown == true:
 					animation.play("idle_left")
+				
 
 		# player is walking up
 		if direction == "up":
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
+				if attack_in_progress == false and enemy_attack_cooldown == true:
 					animation.play("idle_left")
+					
 		
 		# player is walking down
 		if direction == "down":
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
+				if attack_in_progress == false and enemy_attack_cooldown == true:
 					animation.play("idle_left")
+					
 				
 	else:
 		animation.flip_h = true
 		animation.play("idle_left")
+		pass
 			
-
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = true
@@ -145,11 +149,16 @@ func _on_player_hitbox_body_exited(body):
 		
 func enemy_attack():
 	if enemy_in_attack_range and enemy_attack_cooldown == true:
+		
 		health = health - 10
 		enemy_attack_cooldown = false
 		$take_damage_cooldown.start()
+		
+		$AnimatedSprite2D.play("hit_left")
+		await get_tree().create_timer(0.5).timeout
+		$AnimatedSprite2D.play("idle_left")
 		print(health)
-
+		
 func _on_take_damage_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
@@ -201,15 +210,6 @@ func update_health():
 		healthbar.visible = false
 	else: # health bar visible when not full life
 		healthbar.visible = true
-
-# Health regeneration
-func _on_regeneration_timer_timeout():
-	if health < 100:
-		health = health + 20
-		if health > 100:
-			health = 100
-	if health <= 0:
-		health = 0
 
 # adds collected item to the inventory
 func collect(item):

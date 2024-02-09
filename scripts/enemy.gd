@@ -15,13 +15,13 @@ func _physics_process(delta):
 	# Player entered detection area
 	if player_chase:
 		position += (player.position - position) / speed
-		$AnimatedSprite2D.play("running")
+		$AnimatedSprite2D.play("walking")
 		
 		# Enemy looks into the right position depending where the pplayer is
 		if(player.position.x - position.x) < 0:
-			$AnimatedSprite2D.flip_h = true # follows player to the left
+			$AnimatedSprite2D.flip_h = false # follows player to the left
 		else:
-			$AnimatedSprite2D.flip_h = false # follows player to the right
+			$AnimatedSprite2D.flip_h = true # follows player to the right
 	
 	# Player left detection area
 	else:
