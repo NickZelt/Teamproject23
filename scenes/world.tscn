@@ -19529,6 +19529,9 @@ texture_region_size = Vector2i(32, 32)
 6:6/0 = 0
 6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:6/0/physics_layer_0/angular_velocity = 0.0
+4:6/0 = 0
+4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62dcv"]
 texture = ExtResource("6_05n7x")
@@ -19539,9 +19542,11 @@ texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_fhv1t"]
 tile_size = Vector2i(32, 32)
@@ -19574,7 +19579,7 @@ layer_3/z_index = -1
 layer_3/tile_data = PackedInt32Array(131069, 917506, 23, 196605, 917506, 24, 131067, 786434, 23, 196603, 786434, 24, 131068, 851970, 23, 196604, 851970, 24, 131066, 720898, 23, 196602, 720898, 24, 65538, 720898, 23, 131074, 720898, 24, 65539, 786434, 23, 131075, 786434, 24, 65540, 851970, 23, 131076, 851970, 24, 65541, 917506, 23, 131077, 917506, 24, 65543, 720898, 23, 131079, 720898, 24, 65544, 786434, 23, 131080, 786434, 24, 65545, 851970, 23, 131081, 851970, 24, 65546, 917506, 23, 131082, 917506, 24, 131061, 720898, 23, 196597, 720898, 24, 131062, 786434, 23, 196598, 786434, 24, 131063, 851970, 23, 196599, 851970, 24, 131064, 917506, 23, 196600, 917506, 24)
 layer_4/name = "interior"
 layer_4/y_sort_enabled = true
-layer_4/tile_data = PackedInt32Array(196606, 524290, 22, 262142, 524290, 23, 131073, 589826, 22, 196609, 589826, 23, 196612, 393218, 268435480, 196611, 458754, 268435480, 196610, 524290, 268435480, 262148, 393218, 268435481, 262147, 458754, 268435481, 262146, 524290, 268435481, 393217, 851972, 19, 393218, 917508, 19, 393219, 917508, 19, 393220, 917508, 19, 393221, 917508, 19, 393222, 983044, 19, 262150, 851972, 26, 196614, 917508, 26, 393209, 8, 4, 458745, 8, 5, 524281, 8, 6, 393210, 131080, 4, 458746, 131080, 5, 524282, 131080, 6)
+layer_4/tile_data = PackedInt32Array(196606, 524290, 22, 262142, 524290, 23, 131073, 589826, 22, 196609, 589826, 23, 196612, 393218, 268435480, 196611, 458754, 268435480, 196610, 524290, 268435480, 262148, 393218, 268435481, 262147, 458754, 268435481, 262146, 524290, 268435481, 393217, 851972, 19, 393218, 917508, 19, 393219, 917508, 19, 393220, 917508, 19, 393221, 917508, 19, 393222, 983044, 19, 262150, 851972, 26, 196614, 917508, 26, 393208, 9, 0, 458744, 9, 1, 524280, 9, 2, 393207, 8, 4, 458743, 8, 5, 524279, 8, 6, 393209, 131080, 4, 458745, 131080, 5, 524281, 131080, 6)
 
 [node name="player" parent="." instance=ExtResource("3_p4kr6")]
 position = Vector2(1, 134)
@@ -19582,10 +19587,10 @@ position = Vector2(1, 134)
 [node name="Node" type="Node" parent="."]
 
 [node name="enemy" parent="Node" instance=ExtResource("4_dces7")]
-position = Vector2(-212, 126)
+position = Vector2(380, 109)
 
 [node name="shelf_ducks" parent="." instance=ExtResource("8_64jgl")]
-position = Vector2(-192, 210)
+position = Vector2(-240, 210)
 
 [node name="collectable_apple" parent="." instance=ExtResource("10_ussdj")]
 position = Vector2(-72, 199)
