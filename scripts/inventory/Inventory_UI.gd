@@ -9,7 +9,7 @@ var is_open = false
 func _ready():
 	inventory.update.connect(update_slots)
 	update_slots()
-	close()
+	open()
 
 # update slots in the inventory
 func update_slots():
