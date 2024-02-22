@@ -1,34 +1,29 @@
-[gd_scene load_steps=17 format=3 uid="uid://xxdv7epd0p3c"]
+[gd_scene load_steps=15 format=3 uid="uid://en274ho2f8dw"]
 
-[ext_resource type="Texture2D" uid="uid://c3iv4vad00m7r" path="res://assets/art/tiles/shelfs/Schrank_Leer.png" id="1_0w41v"]
-[ext_resource type="Script" path="res://scripts/shelfs/shelf_3items.gd" id="1_bwrtk"]
-[ext_resource type="Texture2D" uid="uid://beqd28h1kh35i" path="res://assets/art/tiles/shelfs/ducks/Schrank_Ente3.png" id="2_0tepy"]
-[ext_resource type="Resource" uid="uid://dgtilqupef1yi" path="res://scripts/inventory/items/duck.tres" id="2_dlett"]
-[ext_resource type="Texture2D" uid="uid://bothjfiyerknr" path="res://assets/art/tiles/shelfs/ducks/Schrank_Ente2.png" id="3_mtu2h"]
-[ext_resource type="Texture2D" uid="uid://bxbub8yoxq4nx" path="res://assets/art/tiles/shelfs/ducks/Schrank_Ente1.png" id="4_vtf36"]
-[ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="6_oxuxu"]
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_2items.gd" id="1_rfe4y"]
+[ext_resource type="Texture2D" uid="uid://c3iv4vad00m7r" path="res://assets/art/tiles/shelfs/Schrank_Leer.png" id="2_qo0hc"]
+[ext_resource type="Resource" uid="uid://b3odicjh4iwr8" path="res://scripts/inventory/items/console.tres" id="2_wsrce"]
+[ext_resource type="Texture2D" uid="uid://bqa7tvmmakxbk" path="res://assets/art/tiles/shelfs/console/Schrank_Spielkonsole2.png" id="3_i18n1"]
+[ext_resource type="Texture2D" uid="uid://cgr73t50idulk" path="res://assets/art/tiles/shelfs/console/Schrank_Spielkonsole1.png" id="4_frd0r"]
+[ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="6_bdnvr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_15ahv"]
-atlas = ExtResource("1_0w41v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn7bn"]
+atlas = ExtResource("2_qo0hc")
 region = Rect2(0, 4, 32, 92)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4hkx"]
-atlas = ExtResource("2_0tepy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy8qq"]
+atlas = ExtResource("3_i18n1")
 region = Rect2(0, 4, 32, 92)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pcdsm"]
-atlas = ExtResource("3_mtu2h")
-region = Rect2(0, 4, 32, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0b1xg"]
-atlas = ExtResource("4_vtf36")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g44g4"]
+atlas = ExtResource("4_frd0r")
 region = Rect2(0, 4, 32, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1j0dj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_15ahv")
+"texture": SubResource("AtlasTexture_cn7bn")
 }],
 "loop": true,
 "name": &"0items",
@@ -36,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w4hkx")
+"texture": SubResource("AtlasTexture_jy8qq")
 }],
 "loop": true,
 "name": &"1items",
@@ -44,27 +39,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pcdsm")
+"texture": SubResource("AtlasTexture_g44g4")
 }],
 "loop": true,
 "name": &"2items",
 "speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0b1xg")
-}],
-"loop": true,
-"name": &"3items",
-"speed": 0.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lrysu"]
-atlas = ExtResource("6_oxuxu")
+atlas = ExtResource("6_bdnvr")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xcncb"]
-atlas = ExtResource("6_oxuxu")
+atlas = ExtResource("6_bdnvr")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_une5u"]
@@ -84,13 +71,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chytf"]
 size = Vector2(8, 20)
 
-[node name="shelf_ducks" type="Node2D"]
-script = ExtResource("1_bwrtk")
-item = ExtResource("2_dlett")
+[node name="shelf_console" type="Node2D"]
+script = ExtResource("1_rfe4y")
+item = ExtResource("2_wsrce")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1j0dj")
-animation = &"3items"
+animation = &"0items"
 
 [node name="e_key_animation" type="AnimatedSprite2D" parent="."]
 visible = false

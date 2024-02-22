@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://dunv4s3i8pf3u"]
+
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_2items.gd" id="1_i5qii"]
+[ext_resource type="Resource" uid="uid://b3p7qf61rcbuo" path="res://scripts/inventory/items/salad.tres" id="2_38qn2"]
+[ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="2_x0sj4"]
+[ext_resource type="Texture2D" uid="uid://22stplorprgw" path="res://assets/art/tiles/shelfs/salat/Schrank_Salat2.png" id="3_w8eto"]
+[ext_resource type="Texture2D" uid="uid://c8n2o55o5ts0c" path="res://assets/art/tiles/shelfs/salat/Schrank_Salat1.png" id="4_nj5r3"]
+[ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="8_p45fs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uxte"]
+atlas = ExtResource("2_x0sj4")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lby7"]
+atlas = ExtResource("3_w8eto")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyvye"]
+atlas = ExtResource("4_nj5r3")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1j0dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uxte")
+}],
+"loop": true,
+"name": &"0items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lby7")
+}],
+"loop": true,
+"name": &"1items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyvye")
+}],
+"loop": true,
+"name": &"2items",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrysu"]
+atlas = ExtResource("8_p45fs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcncb"]
+atlas = ExtResource("8_p45fs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_une5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrysu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcncb")
+}],
+"loop": true,
+"name": &"key_animation",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chytf"]
+size = Vector2(8, 20)
+
+[node name="shelf_salat" type="Node2D"]
+script = ExtResource("1_i5qii")
+item = ExtResource("2_38qn2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1j0dj")
+animation = &"2items"
+
+[node name="e_key_animation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2.84217e-14, -42)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_une5u")
+animation = &"key_animation"
+frame_progress = 0.312075
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_chytf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]

@@ -19624,10 +19624,9 @@ position = Vector2(1, 134)
 [node name="Node" type="Node" parent="."]
 
 [node name="enemy" parent="Node" instance=ExtResource("4_dces7")]
-position = Vector2(116, 166)
+position = Vector2(131, -77)
 
 [node name="shelfes" type="Control" parent="."]
-visible = false
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0

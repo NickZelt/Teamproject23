@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b3odicjh4iwr8"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_etbuy"]
+[ext_resource type="Texture2D" uid="uid://b77tniemu0l82" path="res://assets/art/items/shelfitems/NES_Konsole.png" id="2_aj70p"]
+
+[resource]
+script = ExtResource("1_etbuy")
+name = "console"
+texture = ExtResource("2_aj70p")

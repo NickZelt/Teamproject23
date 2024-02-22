@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://iyeo28yrgi6i"]
 
-[ext_resource type="Script" path="res://scripts/shelfs/shelf_cola.gd" id="1_xovgp"]
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_4items.gd" id="1_xovgp"]
 [ext_resource type="Resource" uid="uid://2e6c1pdkmda1" path="res://scripts/inventory/items/cola.tres" id="2_ta4m3"]
 [ext_resource type="Texture2D" uid="uid://c3iv4vad00m7r" path="res://assets/art/tiles/shelfs/Schrank_Leer.png" id="3_4o7sb"]
 [ext_resource type="Texture2D" uid="uid://dqu457qrb0yan" path="res://assets/art/tiles/shelfs/cola/Schrank_Cola4.png" id="4_fgw87"]
