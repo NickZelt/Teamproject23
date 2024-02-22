@@ -221,8 +221,6 @@ height = 36.0
 radius = 11.0
 
 [node name="enemy" type="CharacterBody2D"]
-light_mask = 2
-visibility_layer = 2
 script = ExtResource("1_luoma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
