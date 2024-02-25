@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dfrvri3bombi3"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_r3yfa"]
+[ext_resource type="Texture2D" uid="uid://c7yxp6ofbo0w5" path="res://assets/art/items/shelfitems/brot.png" id="2_pb5ev"]
+
+[resource]
+script = ExtResource("1_r3yfa")
+name = "bread"
+texture = ExtResource("2_pb5ev")

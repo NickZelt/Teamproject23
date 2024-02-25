@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cnxhedjsjej0u"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_03esj"]
+[ext_resource type="Texture2D" uid="uid://dd1v5vb3cv87j" path="res://assets/art/items/shelfitems/Item_Pilz.png" id="2_p36uj"]
+
+[resource]
+script = ExtResource("1_03esj")
+name = "mushroom"
+texture = ExtResource("2_p36uj")
