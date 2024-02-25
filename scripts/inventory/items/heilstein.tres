@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://brvgl2icb6nf2"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_ytjtv"]
+[ext_resource type="Texture2D" uid="uid://38u610bon0ot" path="res://assets/art/items/shelfitems/kristall.png" id="2_w0a1p"]
+
+[resource]
+script = ExtResource("1_ytjtv")
+name = "heilstein"
+texture = ExtResource("2_w0a1p")
