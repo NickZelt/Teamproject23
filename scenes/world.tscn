@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=20 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="1_avy3t"]
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3iv4vad00m7r" path="res://assets/art/tiles/shelfs/Schrank_Leer.png" id="6_05n7x"]
 [ext_resource type="Texture2D" uid="uid://crmm17gpjsut7" path="res://assets/art/tiles/19_Hospital_32x32.png" id="6_j111j"]
 [ext_resource type="PackedScene" uid="uid://j2jx7fhc0uwx" path="res://scenes/collectibles/collectable_apple.tscn" id="10_ussdj"]
+[ext_resource type="PackedScene" uid="uid://cqn473igj5p87" path="res://scenes/collectibles/collectable_chilli.tscn" id="11_f0j7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6na52"]
 texture = ExtResource("1_avy3t")
@@ -19672,10 +19673,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="collectable_apple" parent="collectibles/apples" instance=ExtResource("10_ussdj")]
-position = Vector2(189, -90)
+position = Vector2(166, 178)
 
 [node name="collectable_apple2" parent="collectibles/apples" instance=ExtResource("10_ussdj")]
-position = Vector2(235, -83)
+position = Vector2(137, 176)
 
-[node name="collectable_apple3" parent="collectibles/apples" instance=ExtResource("10_ussdj")]
-position = Vector2(265, -73)
+[node name="collectable_apple4" parent="collectibles/apples" instance=ExtResource("11_f0j7v")]
+position = Vector2(198, 177)

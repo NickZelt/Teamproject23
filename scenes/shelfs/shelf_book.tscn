@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbrurso0mf52p"]
+
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_4items.gd" id="1_nwai5"]
+[ext_resource type="Resource" uid="uid://dmri5hb4pwtor" path="res://scripts/inventory/items/book.tres" id="2_aid74"]
+[ext_resource type="Texture2D" uid="uid://c3iv4vad00m7r" path="res://assets/art/tiles/shelfs/Schrank_Leer.png" id="3_avjlo"]
+[ext_resource type="Texture2D" uid="uid://cqol5r2klcxbf" path="res://assets/art/tiles/shelfs/book/Schrank_Bucher4.png" id="4_snjq4"]
+[ext_resource type="Texture2D" uid="uid://crj037pfd7c38" path="res://assets/art/tiles/shelfs/book/Schrank_Bucher3.png" id="5_2p7q8"]
+[ext_resource type="Texture2D" uid="uid://h47m3i5hn1sf" path="res://assets/art/tiles/shelfs/book/Schrank_Bucher2.png" id="6_f2pf5"]
+[ext_resource type="Texture2D" uid="uid://cvf2c8hk06voe" path="res://assets/art/tiles/shelfs/book/Schrank_Bucher1.png" id="7_8ale8"]
+[ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="8_bcabe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15ahv"]
+atlas = ExtResource("3_avjlo")
+region = Rect2(0, 4, 32, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnaaa"]
+atlas = ExtResource("4_snjq4")
+region = Rect2(0, 4, 32, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjlid"]
+atlas = ExtResource("5_2p7q8")
+region = Rect2(0, 4, 32, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hki58"]
+atlas = ExtResource("6_f2pf5")
+region = Rect2(0, 4, 32, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yol3"]
+atlas = ExtResource("7_8ale8")
+region = Rect2(0, 4, 32, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1j0dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15ahv")
+}],
+"loop": true,
+"name": &"0items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnaaa")
+}],
+"loop": true,
+"name": &"1items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjlid")
+}],
+"loop": true,
+"name": &"2items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hki58")
+}],
+"loop": true,
+"name": &"3items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yol3")
+}],
+"loop": true,
+"name": &"4items",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrysu"]
+atlas = ExtResource("8_bcabe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcncb"]
+atlas = ExtResource("8_bcabe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_une5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrysu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcncb")
+}],
+"loop": true,
+"name": &"key_animation",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chytf"]
+size = Vector2(8, 20)
+
+[node name="shelf_book" type="Node2D"]
+script = ExtResource("1_nwai5")
+item = ExtResource("2_aid74")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1j0dj")
+animation = &"2items"
+
+[node name="e_key_animation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2.84217e-14, -42)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_une5u")
+animation = &"key_animation"
+frame_progress = 0.312075
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_chytf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]

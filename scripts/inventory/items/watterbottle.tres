@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://den02725x6fv"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_yesum"]
+[ext_resource type="Texture2D" uid="uid://b5rtu530wb675" path="res://assets/art/items/shelfitems/Item_Wasserflasche.png" id="2_qsuki"]
+
+[resource]
+script = ExtResource("1_yesum")
+name = "waterbottle"
+texture = ExtResource("2_qsuki")

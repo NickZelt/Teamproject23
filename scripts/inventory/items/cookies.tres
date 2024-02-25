@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://ca1laxwxmc8uh"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_l4bb5"]
+[ext_resource type="Texture2D" uid="uid://bkach0fe06fws" path="res://assets/art/items/shelfitems/cookies.png" id="2_da6s6"]
+
+[resource]
+script = ExtResource("1_l4bb5")
+name = "cookies"
+texture = ExtResource("2_da6s6")
