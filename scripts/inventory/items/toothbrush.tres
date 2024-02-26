@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://7ijfnkftbyuh"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_bypsd"]
+[ext_resource type="Texture2D" uid="uid://ck8gyosys876n" path="res://assets/art/items/shelfitems/toothbrush.png" id="2_nbg7o"]
+
+[resource]
+script = ExtResource("1_bypsd")
+name = "toothbrush"
+texture = ExtResource("2_nbg7o")

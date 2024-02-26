@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://to6bpy4g03o2"
+path="res://.godot/imported/Punch Medium A.wav-ef56125b54a93a0c7fc5b1ef51b06e37.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/damage/Punch Medium A.wav"
+dest_files=["res://.godot/imported/Punch Medium A.wav-ef56125b54a93a0c7fc5b1ef51b06e37.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

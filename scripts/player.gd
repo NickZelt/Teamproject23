@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var inventory: Inventory
+
+
 # max Movement Speed of the player
 const maxSpeed = 200
 const acceleration = 5000
@@ -94,47 +97,47 @@ func play_animation(movement):
 	
 		# player is walking right
 		if direction == "right":
-			#animation.flip_h = false
+			animation.flip_h = true
 			if movement == 1:
-				animation.play("running_right")
+				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
-					animation.play("idle_right")
+				if attack_in_progress == false and enemy_attack_cooldown == true:
+					animation.play("idle_left")
+					
 		
 		# player is walking left
 		if direction == "left":
-			#animation.flip_h = true
+			animation.flip_h = false
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
+				if attack_in_progress == false and enemy_attack_cooldown == true:
 					animation.play("idle_left")
+				
 
 		# player is walking up
 		if direction == "up":
-			#animation.flip_h = false
 			if movement == 1:
 				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
+				if attack_in_progress == false and enemy_attack_cooldown == true:
 					animation.play("idle_left")
+					
 		
 		# player is walking down
 		if direction == "down":
-			#animation.flip_h = false
 			if movement == 1:
-				animation.play("running_right")
+				animation.play("running_left")
 			elif movement == 0:
-				if attack_in_progress == false:
-					animation.play("idle_right")
+				if attack_in_progress == false and enemy_attack_cooldown == true:
+					animation.play("idle_left")
+					
 				
 	else:
-		animation.play("idle_right")
+		animation.flip_h = true
+		animation.play("idle_left")
+		pass
 			
-
-func player():
-	pass
-
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = true
@@ -146,35 +149,46 @@ func _on_player_hitbox_body_exited(body):
 		
 func enemy_attack():
 	if enemy_in_attack_range and enemy_attack_cooldown == true:
+		$damage.play()
+		
 		health = health - 10
 		enemy_attack_cooldown = false
 		$take_damage_cooldown.start()
+		
+		$AnimatedSprite2D.play("hit_left")
+		await get_tree().create_timer(0.5).timeout
+		$AnimatedSprite2D.play("idle_left")
 		print(health)
-
-
+		
 func _on_take_damage_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
 func attack():
 	var direction = current_direcition
+	var animation = $AnimatedSprite2D
 	
 	if Input.is_action_just_pressed("attack"):
+		$weaponSlash.play()
 		Game.player_current_attack = true
 		attack_in_progress = true
 		if direction == "right":
-			$AnimatedSprite2D.play("slay_right_weapon")
+			animation.flip_h = true
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 			
 		if direction == "left":
-			$AnimatedSprite2D.play("slay_left_weapon")
+			animation.flip_h = false
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 			
 		if direction == "down":
-			$AnimatedSprite2D.play("slay_right_weapon")
+			animation.flip_h = true
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 			
 		if direction == "up":
-			$AnimatedSprite2D.play("slay_left_weapon")
+			animation.flip_h = false
+			animation.play("slay_left_weapon")
 			$deal_attack_timer.start()
 
 
@@ -186,7 +200,6 @@ func _on_deal_attack_timer_timeout():
 func _on_back_to_main_menu_pressed():
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
 	Main.change_scene.emit("res://scenes/main.tscn")
-
 
 # Health system
 func update_health():
@@ -200,14 +213,10 @@ func update_health():
 	else: # health bar visible when not full life
 		healthbar.visible = true
 
-# Health regeneration
-func _on_regeneration_timer_timeout():
-	if health < 100:
-		health = health + 20
-		if health > 100:
-			health = 100
-	if health <= 0:
-		health = 0
-
-
-
+# adds collected item to the inventory
+func collect(item):
+	inventory.insert(item)
+	
+# Method to check for player
+func player():
+	pass

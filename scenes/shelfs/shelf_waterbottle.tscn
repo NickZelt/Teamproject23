@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://c54luohnss136"]
+
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_4items.gd" id="1_q1xe4"]
+[ext_resource type="Resource" uid="uid://den02725x6fv" path="res://scripts/inventory/items/watterbottle.tres" id="2_d2lub"]
+[ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="3_6x5e4"]
+[ext_resource type="Texture2D" uid="uid://6o0a1b5l56rh" path="res://assets/art/tiles/shelfs/waterbottle/Schrank_Wasserflasche4.png" id="4_kyvfb"]
+[ext_resource type="Texture2D" uid="uid://brynhdopvwbfv" path="res://assets/art/tiles/shelfs/waterbottle/Schrank_Wasserflasche3.png" id="5_25gs2"]
+[ext_resource type="Texture2D" uid="uid://b8ugcg3kckxcb" path="res://assets/art/tiles/shelfs/waterbottle/Schrank_Wasserflasche2.png" id="6_thirf"]
+[ext_resource type="Texture2D" uid="uid://s5d4sir1aua8" path="res://assets/art/tiles/shelfs/waterbottle/Schrank_Wasserflasche1.png" id="7_aax0e"]
+[ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="8_8hc1k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj2lb"]
+atlas = ExtResource("3_6x5e4")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32jd2"]
+atlas = ExtResource("4_kyvfb")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxplb"]
+atlas = ExtResource("5_25gs2")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu8ly"]
+atlas = ExtResource("6_thirf")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drq20"]
+atlas = ExtResource("7_aax0e")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1j0dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj2lb")
+}],
+"loop": true,
+"name": &"0items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32jd2")
+}],
+"loop": true,
+"name": &"1items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxplb")
+}],
+"loop": true,
+"name": &"2items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu8ly")
+}],
+"loop": true,
+"name": &"3items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drq20")
+}],
+"loop": true,
+"name": &"4items",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrysu"]
+atlas = ExtResource("8_8hc1k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcncb"]
+atlas = ExtResource("8_8hc1k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_une5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrysu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcncb")
+}],
+"loop": true,
+"name": &"key_animation",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chytf"]
+size = Vector2(8, 20)
+
+[node name="shelf_waterbottle" type="Node2D"]
+script = ExtResource("1_q1xe4")
+item = ExtResource("2_d2lub")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1j0dj")
+animation = &"0items"
+
+[node name="e_key_animation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2.84217e-14, -42)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_une5u")
+animation = &"key_animation"
+frame_progress = 0.312075
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_chytf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]

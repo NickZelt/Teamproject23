@@ -15,60 +15,58 @@ func _physics_process(delta):
 	# Player entered detection area
 	if player_chase:
 		position += (player.position - position) / speed
-		$AnimatedSprite2D.play("running")
+		$AnimatedSprite2D.play("walking")
 		
 		# Enemy looks into the right position depending where the pplayer is
 		if(player.position.x - position.x) < 0:
-			$AnimatedSprite2D.flip_h = true # follows player to the left
+			$AnimatedSprite2D.flip_h = false # follows player to the left
 		else:
-			$AnimatedSprite2D.flip_h = false # follows player to the right
+			$AnimatedSprite2D.flip_h = true # follows player to the right
 	
 	# Player left detection area
 	else:
 		$AnimatedSprite2D.play("idle")
-		
-		
 
+# enemie chases the player
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
 	$emotionHappy.hide()
 	$emotionAngry.show()
 
-
+# enemie stops chasing the player
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
 	$emotionHappy.show()
 	$emotionAngry.hide()
-	
-	
+
+# simple method to check if body is enemy or not
 func enemy():
 	pass
 
-
+# player is in the attacke zone
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
 		player_in_attack_zone = true
 
+# player is not in the attack zone
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
 		player_in_attack_zone = false
-		
-		
-		
+
+# damage to enemie
 func deal_with_damage():
 	if player_in_attack_zone and Game.player_current_attack == true:
-		
 		if can_take_damage == true:
 			health = health - 20
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("Enemy Health: ", health)
 			if health <= 0:
-				self.queue_free() # eneme dead
+				self.queue_free() # enemie dead
 
-
+# enemy can take damage				
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
 	

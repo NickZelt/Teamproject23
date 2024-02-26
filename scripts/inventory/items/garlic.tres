@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cnumm6vv8ndir"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_00y5j"]
+[ext_resource type="Texture2D" uid="uid://dmjv2qdvw85bv" path="res://assets/art/items/collectibles/knoblauch.png" id="2_6cex8"]
+
+[resource]
+script = ExtResource("1_00y5j")
+name = "garlic"
+texture = ExtResource("2_6cex8")

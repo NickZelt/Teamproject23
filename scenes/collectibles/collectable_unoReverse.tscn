@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cegolp28gajlt"]
+
+[ext_resource type="Script" path="res://scripts/collectibles/collectable_item.gd" id="1_gbyy7"]
+[ext_resource type="Resource" uid="uid://dg05kvxd3sbrp" path="res://scripts/inventory/items/unoReverse.tres" id="2_x34ut"]
+[ext_resource type="Texture2D" uid="uid://da64s5a2yvyee" path="res://assets/art/items/collectibles/unoReverse.png" id="3_a3wu7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pekev"]
+
+[node name="collectable_unoReverse" type="StaticBody2D"]
+script = ExtResource("1_gbyy7")
+item = ExtResource("2_x34ut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_a3wu7")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_pekev")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://j2jx7fhc0uwx"]
+
+[ext_resource type="Script" path="res://scripts/collectibles/collectable_item.gd" id="1_wog1k"]
+[ext_resource type="Texture2D" uid="uid://dlruoclrcd4wv" path="res://assets/art/items/collectibles/Apfel_4-export.png" id="2_5r6e2"]
+[ext_resource type="Resource" uid="uid://c8m4v3jc5styc" path="res://scripts/inventory/items/apple.tres" id="2_ngj00"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pekev"]
+
+[node name="collectable_apple" type="StaticBody2D"]
+script = ExtResource("1_wog1k")
+item = ExtResource("2_ngj00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5r6e2")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_pekev")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=21 format=3 uid="uid://bnwprd7s5xfgs"]
+
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_5items.gd" id="1_brgf8"]
+[ext_resource type="Resource" uid="uid://deiw6nsmv3slh" path="res://scripts/inventory/items/aubergine.tres" id="2_7ur26"]
+[ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="3_5aqsj"]
+[ext_resource type="Texture2D" uid="uid://cjpefj35bmnfa" path="res://assets/art/tiles/shelfs/aubergine/Schrank_Aubergine5.png" id="4_rrvlo"]
+[ext_resource type="Texture2D" uid="uid://cutnwxdj1d6xx" path="res://assets/art/tiles/shelfs/aubergine/Schrank_Aubergine4.png" id="5_n465c"]
+[ext_resource type="Texture2D" uid="uid://cdfklvc0cshyq" path="res://assets/art/tiles/shelfs/aubergine/Schrank_Aubergine3.png" id="6_x6mlo"]
+[ext_resource type="Texture2D" uid="uid://bxl6hy1uqhham" path="res://assets/art/tiles/shelfs/aubergine/Schrank_Aubergine2.png" id="7_ti2ql"]
+[ext_resource type="Texture2D" uid="uid://c8jjhdlc8k8o8" path="res://assets/art/tiles/shelfs/aubergine/Schrank_Aubergine1.png" id="8_hywt7"]
+[ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="9_drx8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2acq"]
+atlas = ExtResource("3_5aqsj")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4xwl"]
+atlas = ExtResource("4_rrvlo")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu4iw"]
+atlas = ExtResource("5_n465c")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erln5"]
+atlas = ExtResource("6_x6mlo")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csd0d"]
+atlas = ExtResource("7_ti2ql")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3ktc"]
+atlas = ExtResource("8_hywt7")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1j0dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2acq")
+}],
+"loop": true,
+"name": &"0items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4xwl")
+}],
+"loop": true,
+"name": &"1items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu4iw")
+}],
+"loop": true,
+"name": &"2items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erln5")
+}],
+"loop": true,
+"name": &"3items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csd0d")
+}],
+"loop": true,
+"name": &"4items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3ktc")
+}],
+"loop": true,
+"name": &"5items",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrysu"]
+atlas = ExtResource("9_drx8i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcncb"]
+atlas = ExtResource("9_drx8i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_une5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrysu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcncb")
+}],
+"loop": true,
+"name": &"key_animation",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chytf"]
+size = Vector2(8, 20)
+
+[node name="shelf_aubergine" type="Node2D"]
+script = ExtResource("1_brgf8")
+item = ExtResource("2_7ur26")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1j0dj")
+animation = &"4items"
+
+[node name="e_key_animation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2.84217e-14, -42)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_une5u")
+animation = &"key_animation"
+frame_progress = 0.312075
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_chytf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
