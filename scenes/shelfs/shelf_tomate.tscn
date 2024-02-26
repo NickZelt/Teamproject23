@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://dipxoyst0elui"]
+[gd_scene load_steps=23 format=3 uid="uid://dipxoyst0elui"]
 
-[ext_resource type="Script" path="res://scripts/shelfs/shelf_5items.gd" id="1_awwu6"]
+[ext_resource type="Script" path="res://scripts/shelfs/shelf_6items.gd" id="1_bkwlq"]
 [ext_resource type="Resource" uid="uid://np46rn8m7486" path="res://scripts/inventory/items/tomate.tres" id="2_0m7lv"]
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="3_4hmka"]
 [ext_resource type="Texture2D" uid="uid://dxlbhtcflgv8c" path="res://assets/art/tiles/shelfs/tomate/Schrank_Tomaten5.png" id="4_ecrnd"]
 [ext_resource type="Texture2D" uid="uid://cv4brwkeisduu" path="res://assets/art/tiles/shelfs/tomate/Schrank_Tomaten4.png" id="5_flhdv"]
 [ext_resource type="Texture2D" uid="uid://bj6dr81su8ixs" path="res://assets/art/tiles/shelfs/tomate/Schrank_Tomaten3.png" id="6_5o2b4"]
+[ext_resource type="Texture2D" uid="uid://rwcyemvlltb8" path="res://assets/art/tiles/shelfs/tomate/Schrank_Tomaten3.5.png" id="6_j8xh7"]
 [ext_resource type="Texture2D" uid="uid://c57pum7y775lw" path="res://assets/art/tiles/shelfs/tomate/Schrank_Tomaten2.png" id="7_6f738"]
 [ext_resource type="Texture2D" uid="uid://ft3bm4vehkgs" path="res://assets/art/tiles/shelfs/tomate/Schrank_Tomaten1.png" id="8_ov7x1"]
 [ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="9_aantp"]
@@ -22,15 +23,19 @@ region = Rect2(0, 0, 32, 96)
 atlas = ExtResource("5_flhdv")
 region = Rect2(0, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbupk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hvil"]
+atlas = ExtResource("6_j8xh7")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_begmn"]
 atlas = ExtResource("6_5o2b4")
 region = Rect2(0, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wf1e3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_54nb1"]
 atlas = ExtResource("7_6f738")
 region = Rect2(0, 0, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_60mck"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu5i0"]
 atlas = ExtResource("8_ov7x1")
 region = Rect2(0, 0, 32, 96)
 
@@ -62,7 +67,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wbupk")
+"texture": SubResource("AtlasTexture_7hvil")
 }],
 "loop": true,
 "name": &"3items",
@@ -70,7 +75,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wf1e3")
+"texture": SubResource("AtlasTexture_begmn")
 }],
 "loop": true,
 "name": &"4items",
@@ -78,10 +83,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_60mck")
+"texture": SubResource("AtlasTexture_54nb1")
 }],
 "loop": true,
 "name": &"5items",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu5i0")
+}],
+"loop": true,
+"name": &"6items",
 "speed": 0.0
 }]
 
@@ -111,12 +124,12 @@ animations = [{
 size = Vector2(8, 20)
 
 [node name="shelf_tomate" type="Node2D"]
-script = ExtResource("1_awwu6")
+script = ExtResource("1_bkwlq")
 item = ExtResource("2_0m7lv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1j0dj")
-animation = &"1items"
+animation = &"6items"
 
 [node name="e_key_animation" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dfv2n2hqdke27"]
 
-[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_l2qni"]
-[ext_resource type="Texture2D" uid="uid://dkeko5sdjtog" path="res://assets/art/items/collectibles/Kerzen.png" id="2_ygw7c"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_item.gd" id="1_nfoyx"]
+[ext_resource type="Texture2D" uid="uid://dpswg1q23msc0" path="res://assets/art/items/shelfitems/Item_Kerzen.png" id="2_80ps8"]
 
 [resource]
-script = ExtResource("1_l2qni")
+script = ExtResource("1_nfoyx")
 name = "candle"
-texture = ExtResource("2_ygw7c")
+texture = ExtResource("2_80ps8")
