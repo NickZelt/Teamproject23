@@ -22,9 +22,19 @@ Main="*res://scripts/main.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
 window/size/initial_screen=2
+window/size/borderless=true
 window/stretch/mode="viewport"
 window/handheld/orientation=1
+
+[importer_defaults]
+
+animation_library={
+"animation/fps": 120.0
+}
 
 [input]
 
@@ -47,3 +57,4 @@ inventory={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

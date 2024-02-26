@@ -212,7 +212,7 @@ animations = [{
 size = Vector2(24, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdyg8"]
-radius = 15.0
+radius = 23.1948
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f8scc"]
 streams_count = 5
@@ -277,10 +277,10 @@ ignore_rotation = false
 zoom = Vector2(2, 2)
 
 [node name="BackToMainMenu" type="Button" parent="Camera2D"]
-offset_left = -286.0
-offset_top = -160.0
-offset_right = 16.0
-offset_bottom = -129.0
+offset_left = -481.0
+offset_top = -272.0
+offset_right = -179.0
+offset_bottom = -241.0
 theme_override_fonts/font = ExtResource("3_0ictk")
 theme_override_font_sizes/font_size = 25
 text = "Zurück zum Hauptmenü
@@ -304,9 +304,9 @@ anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 offset_left = -109.0
-offset_top = 124.0
+offset_top = 228.0
 offset_right = -109.0
-offset_bottom = 124.0
+offset_bottom = 228.0
 grow_horizontal = 0
 grow_vertical = 0
 
