@@ -71,7 +71,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chytf"]
 size = Vector2(8, 20)
 
-[node name="shelf_salat" type="Node2D"]
+[node name="shelf_toothbrush" type="Node2D"]
 script = ExtResource("1_1upuj")
 item = ExtResource("2_1pgj7")
 
