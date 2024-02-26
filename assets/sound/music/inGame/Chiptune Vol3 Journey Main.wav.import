@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqt7f6m32iey6"
+path="res://.godot/imported/Chiptune Vol3 Journey Main.wav-cfd4ec190ff135bedb2e220a22667279.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/inGame/Chiptune Vol3 Journey Main.wav"
+dest_files=["res://.godot/imported/Chiptune Vol3 Journey Main.wav-cfd4ec190ff135bedb2e220a22667279.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

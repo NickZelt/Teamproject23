@@ -1,9 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvkrfidpvwgyd"]
+[gd_scene load_steps=10 format=3 uid="uid://dvkrfidpvwgyd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ap8nu"]
 [ext_resource type="PackedScene" uid="uid://c4asm3gq14cbp" path="res://scenes/world.tscn" id="1_ydath"]
+[ext_resource type="AudioStream" uid="uid://72jwdr1bqe4p" path="res://assets/sound/music/inGame/Chiptune Vol2 Lighthearted Chill Main.wav" id="3_63ihe"]
+[ext_resource type="AudioStream" uid="uid://dq1gb6equf7k" path="res://assets/sound/music/inGame/Chiptune Vol3 Cherries Main.wav" id="4_7ddvy"]
+[ext_resource type="AudioStream" uid="uid://bbw58argvw5iv" path="res://assets/sound/music/inGame/Chiptune Vol3 Hero Complex Main.wav" id="5_uf755"]
+[ext_resource type="AudioStream" uid="uid://cqt7f6m32iey6" path="res://assets/sound/music/inGame/Chiptune Vol3 Journey Main.wav" id="6_5v7lv"]
+[ext_resource type="AudioStream" uid="uid://bk6g7njeo06oo" path="res://assets/sound/music/inGame/Chiptune Vol3 Qwerty Main.wav" id="7_px833"]
+[ext_resource type="AudioStream" uid="uid://easflo8x7x7f" path="res://assets/sound/music/inGame/Chiptune Vol3 Vision Main.wav" id="8_23u84"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yuwth"]
+streams_count = 6
+stream_0/stream = ExtResource("3_63ihe")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_7ddvy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_uf755")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_5v7lv")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_px833")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_23u84")
+stream_5/weight = 1.0
 
 [node name="Game" type="Node"]
 script = ExtResource("1_ap8nu")
 
 [node name="world" parent="." instance=ExtResource("1_ydath")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_yuwth")
+autoplay = true

@@ -20537,4 +20537,5 @@ position = Vector2(198, 177)
 
 [node name="pickUpItem" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_1p6bg")
+volume_db = 10.0
 pitch_scale = 2.0

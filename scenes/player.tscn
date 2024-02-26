@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://0x1enrtrhxnk"]
+[gd_scene load_steps=46 format=3 uid="uid://0x1enrtrhxnk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wm3n7"]
 [ext_resource type="Texture2D" uid="uid://c676rnm3x37vm" path="res://assets/art/characters/mainchar/Main_Character.png" id="2_fucfu"]
@@ -10,10 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://b18rwswvglt0i" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh C.wav" id="8_qvtek"]
 [ext_resource type="AudioStream" uid="uid://cejno3qh0jqyk" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh D.wav" id="9_j46b6"]
 [ext_resource type="AudioStream" uid="uid://c1bh081nnj8lj" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh E.wav" id="10_0og5g"]
-[ext_resource type="AudioStream" uid="uid://dfd8y0foar6q6" path="res://assets/sound/sfx/damage/Skin Flick A.wav" id="11_ioptg"]
-[ext_resource type="AudioStream" uid="uid://j8ovuu4qdeqv" path="res://assets/sound/sfx/damage/Skin Flick B.wav" id="12_ptkkk"]
-[ext_resource type="AudioStream" uid="uid://c36hwrq2k23fb" path="res://assets/sound/sfx/damage/Skin Flick C.wav" id="13_3k1tm"]
-[ext_resource type="AudioStream" uid="uid://bhchlx4lslqkw" path="res://assets/sound/sfx/damage/Skin Flick D.wav" id="14_daage"]
+[ext_resource type="AudioStream" uid="uid://ckioakjd2d7jq" path="res://assets/sound/sfx/damage/Flesh Hit A.wav" id="11_5xcvt"]
+[ext_resource type="AudioStream" uid="uid://dl7gmid0xbm6y" path="res://assets/sound/sfx/damage/Flesh Hit B.wav" id="12_hayvo"]
+[ext_resource type="AudioStream" uid="uid://xh4pog362kyg" path="res://assets/sound/sfx/damage/Flesh Hit C.wav" id="13_n8xhn"]
+[ext_resource type="AudioStream" uid="uid://to6bpy4g03o2" path="res://assets/sound/sfx/damage/Punch Medium A.wav" id="14_1740w"]
+[ext_resource type="AudioStream" uid="uid://crpspwppa3jn8" path="res://assets/sound/sfx/damage/Punch Medium B.wav" id="15_muc5t"]
+[ext_resource type="AudioStream" uid="uid://btddxhc5x081j" path="res://assets/sound/sfx/damage/Punch Medium C.wav" id="16_l0f5j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf10u"]
 atlas = ExtResource("2_fucfu")
@@ -226,15 +228,19 @@ stream_4/stream = ExtResource("10_0og5g")
 stream_4/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ven5l"]
-streams_count = 4
-stream_0/stream = ExtResource("11_ioptg")
+streams_count = 6
+stream_0/stream = ExtResource("11_5xcvt")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("12_ptkkk")
+stream_1/stream = ExtResource("12_hayvo")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("13_3k1tm")
+stream_2/stream = ExtResource("13_n8xhn")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("14_daage")
+stream_3/stream = ExtResource("14_1740w")
 stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_muc5t")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("16_l0f5j")
+stream_5/weight = 1.0
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -306,11 +312,12 @@ grow_vertical = 0
 
 [node name="weaponSlash" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_f8scc")
+volume_db = 1.0
 pitch_scale = 2.0
 
 [node name="damage" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_ven5l")
-volume_db = 10.0
+volume_db = 1.0
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

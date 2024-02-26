@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dos7dlsh6ikrg"]
+[gd_scene load_steps=10 format=3 uid="uid://dos7dlsh6ikrg"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gds5f"]
 [ext_resource type="VideoStream" path="res://assets/others/main_menu1.ogv" id="2_iq12j"]
-[ext_resource type="AudioStream" uid="uid://cdc3cscrmw0nf" path="res://assets/sound/music/kim-lightyear-legends-109307.mp3" id="3_8xo1g"]
+[ext_resource type="AudioStream" uid="uid://d2w384p13q1ld" path="res://assets/sound/music/mainMenu/Chiptune Action Fun main.wav" id="3_d3gpa"]
 [ext_resource type="FontFile" uid="uid://da3062jus3pln" path="res://assets/fonts/Crang.ttf" id="4_14pno"]
+[ext_resource type="AudioStream" uid="uid://ccyuj24hpk3r4" path="res://assets/sound/music/mainMenu/Chiptune Chilled Fun main.wav" id="4_w7wn3"]
 [ext_resource type="FontFile" uid="uid://4c2y0qlocwh0" path="res://assets/fonts/upheavtt.ttf" id="5_0i0d2"]
+[ext_resource type="AudioStream" uid="uid://bxcpy6nqpf6jq" path="res://assets/sound/music/mainMenu/Chiptune Vol2 Casual Main.wav" id="5_qusyp"]
+[ext_resource type="AudioStream" uid="uid://80cvyekvn0rg" path="res://assets/sound/music/mainMenu/Chiptune Vol3 Candy Main.wav" id="6_yjvq8"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jqade"]
+streams_count = 4
+stream_0/stream = ExtResource("3_d3gpa")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_w7wn3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_qusyp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_yjvq8")
+stream_3/weight = 1.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -40,8 +54,9 @@ stream = ExtResource("2_iq12j")
 autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_8xo1g")
+stream = SubResource("AudioStreamRandomizer_jqade")
 volume_db = -5.0
+autoplay = true
 
 [node name="TitleText" type="Label" parent="."]
 layout_mode = 1
