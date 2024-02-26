@@ -19787,10 +19787,25 @@ layer_9/tile_data = PackedInt32Array(589826, 393218, 60, 589825, 393218, 60, 589
 [node name="player" parent="." instance=ExtResource("3_p4kr6")]
 position = Vector2(1, 134)
 
-[node name="Node" type="Node" parent="."]
+[node name="enemies" type="Node" parent="."]
 
-[node name="enemy" parent="Node" instance=ExtResource("4_dces7")]
-position = Vector2(291, 211)
+[node name="enemy" parent="enemies" instance=ExtResource("4_dces7")]
+position = Vector2(233, 168)
+
+[node name="enemy2" parent="enemies" instance=ExtResource("4_dces7")]
+position = Vector2(620, 778)
+
+[node name="enemy3" parent="enemies" instance=ExtResource("4_dces7")]
+position = Vector2(356, 558)
+
+[node name="enemy4" parent="enemies" instance=ExtResource("4_dces7")]
+position = Vector2(-421, 212)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("4_dces7")]
+position = Vector2(-75, 515)
+
+[node name="enemy6" parent="enemies" instance=ExtResource("4_dces7")]
+position = Vector2(-471, 801)
 
 [node name="shelfes" type="Control" parent="."]
 y_sort_enabled = true
@@ -20322,7 +20337,7 @@ position = Vector2(-565, 850)
 position = Vector2(-533, 850)
 
 [node name="shelf_console6" parent="shelfes/consoles" instance=ExtResource("11_1p5hb")]
-position = Vector2(-496, 850)
+position = Vector2(-501, 850)
 
 [node name="potatos" type="Control" parent="shelfes"]
 y_sort_enabled = true
