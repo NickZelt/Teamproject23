@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1bh081nnj8lj"
+path="res://.godot/imported/Blunt Whoosh E.wav-0f6289cb7db57f48659ca81e951dda21.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh E.wav"
+dest_files=["res://.godot/imported/Blunt Whoosh E.wav-0f6289cb7db57f48659ca81e951dda21.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -167,6 +167,7 @@ func attack():
 	var animation = $AnimatedSprite2D
 	
 	if Input.is_action_just_pressed("attack"):
+		$weaponSlash.play()
 		Game.player_current_attack = true
 		attack_in_progress = true
 		if direction == "right":

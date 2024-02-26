@@ -1,10 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://0x1enrtrhxnk"]
+[gd_scene load_steps=39 format=3 uid="uid://0x1enrtrhxnk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wm3n7"]
 [ext_resource type="Texture2D" uid="uid://c676rnm3x37vm" path="res://assets/art/characters/mainchar/Main_Character.png" id="2_fucfu"]
 [ext_resource type="Resource" uid="uid://dyql4ar8f0qb4" path="res://scripts/inventory/playerInventory.tres" id="2_npnym"]
 [ext_resource type="FontFile" uid="uid://4c2y0qlocwh0" path="res://assets/fonts/upheavtt.ttf" id="3_0ictk"]
 [ext_resource type="PackedScene" uid="uid://se12sg80qkfk" path="res://scripts/inventory/inventory_ui.tscn" id="5_dqah5"]
+[ext_resource type="AudioStream" uid="uid://bit8m272ppt1w" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh A.wav" id="6_xjqjf"]
+[ext_resource type="AudioStream" uid="uid://b6462svb6kubp" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh B.wav" id="7_07r7h"]
+[ext_resource type="AudioStream" uid="uid://b18rwswvglt0i" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh C.wav" id="8_qvtek"]
+[ext_resource type="AudioStream" uid="uid://cejno3qh0jqyk" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh D.wav" id="9_j46b6"]
+[ext_resource type="AudioStream" uid="uid://c1bh081nnj8lj" path="res://assets/sound/sfx/wepaonSlash/Blunt Whoosh E.wav" id="10_0og5g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf10u"]
 atlas = ExtResource("2_fucfu")
@@ -203,6 +208,19 @@ size = Vector2(24, 5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdyg8"]
 radius = 15.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f8scc"]
+streams_count = 5
+stream_0/stream = ExtResource("6_xjqjf")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_07r7h")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_qvtek")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_j46b6")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10_0og5g")
+stream_4/weight = 1.0
+
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(250, 250)
@@ -270,6 +288,10 @@ offset_right = -109.0
 offset_bottom = 124.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="weaponSlash" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_f8scc")
+pitch_scale = 2.0
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
