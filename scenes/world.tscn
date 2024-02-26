@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=64 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="1_avy3t"]
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
@@ -50,6 +50,10 @@
 [ext_resource type="PackedScene" uid="uid://bmt8uy6seii0c" path="res://scenes/shelfs/shelf_suncreme.tscn" id="13_w3uef"]
 [ext_resource type="PackedScene" uid="uid://dunv4s3i8pf3u" path="res://scenes/shelfs/shelf_salat.tscn" id="14_12l8y"]
 [ext_resource type="PackedScene" uid="uid://bccqpy3i4kc4" path="res://scenes/shelfs/shelf_ketchup.tscn" id="14_txcvs"]
+[ext_resource type="AudioStream" uid="uid://tkja4r45j6od" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe A.wav" id="51_2lr7v"]
+[ext_resource type="AudioStream" uid="uid://bc5ejepd24cii" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe B.wav" id="52_37vk8"]
+[ext_resource type="AudioStream" uid="uid://b638n07kendde" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe C.wav" id="53_ggtg2"]
+[ext_resource type="AudioStream" uid="uid://csoipn6f8fmjj" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe D.wav" id="54_ffwdq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6na52"]
 texture = ExtResource("1_avy3t")
@@ -19718,6 +19722,18 @@ sources/8 = SubResource("TileSetAtlasSource_ve7uk")
 sources/9 = SubResource("TileSetAtlasSource_62dcv")
 sources/0 = SubResource("TileSetAtlasSource_6na52")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1p6bg"]
+playback_mode = 1
+streams_count = 4
+stream_0/stream = ExtResource("51_2lr7v")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("52_37vk8")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("53_ggtg2")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("54_ffwdq")
+stream_3/weight = 1.0
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(0, -5)
@@ -19763,7 +19779,7 @@ position = Vector2(1, 134)
 [node name="Node" type="Node" parent="."]
 
 [node name="enemy" parent="Node" instance=ExtResource("4_dces7")]
-position = Vector2(131, -77)
+position = Vector2(195, -79)
 
 [node name="shelfes" type="Control" parent="."]
 y_sort_enabled = true
@@ -20518,3 +20534,7 @@ position = Vector2(137, 176)
 
 [node name="collectable_apple4" parent="collectibles/apples" instance=ExtResource("11_f0j7v")]
 position = Vector2(198, 177)
+
+[node name="pickUpItem" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_1p6bg")
+pitch_scale = 2.0

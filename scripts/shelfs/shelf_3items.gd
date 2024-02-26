@@ -19,6 +19,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("3items")
 		if player_in_area:
 			if Input.is_action_just_pressed("interact"):
+				playPickUpSound()
 				player.collect(item)
 				state = "2items"
 	# Shelf has 2 items
@@ -26,6 +27,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("2items")
 		if player_in_area:
 			if Input.is_action_just_pressed("interact"):
+				playPickUpSound()
 				player.collect(item)
 				state = "1items"
 	# Shelf has 1 items
@@ -33,6 +35,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("1items")
 		if player_in_area:
 			if Input.is_action_just_pressed("interact"):
+				playPickUpSound()
 				player.collect(item)
 				state = "0items"
 	# Shelf has 0 items
@@ -59,3 +62,6 @@ func _on_pickable_area_body_exited(body):
 		# hide and stop key animation
 		key_animation.visible = false
 		key_animation.stop()
+		
+func playPickUpSound():
+	$"../../../pickUpItem".play()

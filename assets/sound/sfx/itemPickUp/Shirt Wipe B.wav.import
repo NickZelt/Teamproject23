@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bc5ejepd24cii"
+path="res://.godot/imported/Shirt Wipe B.wav-e66d8d163a34db336cba149eb056f8d7.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/itemPickUp/Shirt Wipe B.wav"
+dest_files=["res://.godot/imported/Shirt Wipe B.wav-e66d8d163a34db336cba149eb056f8d7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
