@@ -238,6 +238,7 @@ shape = SubResource("CircleShape2D_lk44m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_2f8md")
+one_way_collision = true
 
 [node name="enemy_hitbox" type="Area2D" parent="."]
 
