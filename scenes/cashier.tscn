@@ -1,8 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://c64mnm4lytg1p"]
+[gd_scene load_steps=47 format=3 uid="uid://c64mnm4lytg1p"]
 
 [ext_resource type="Texture2D" uid="uid://o87nni5tilpu" path="res://assets/art/characters/npcs/Sprite_Skassierer.png" id="1_j1ju4"]
 [ext_resource type="Script" path="res://scripts/cashier.gd" id="2_al68j"]
 [ext_resource type="Texture2D" uid="uid://yonskrokkniu" path="res://assets/art/icons/keys/E-Key.png" id="3_kxn8m"]
+[ext_resource type="FontFile" uid="uid://ct16kqea65wrw" path="res://assets/fonts/ThaleahFat.ttf" id="4_dvmdo"]
+[ext_resource type="Texture2D" uid="uid://dvsjtdwevun64" path="res://assets/art/ui/UI_Elements02.png" id="5_u5rhx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjqjn"]
 atlas = ExtResource("1_j1ju4")
@@ -292,21 +294,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptund"]
 size = Vector2(22, 67)
 
+[sub_resource type="LabelSettings" id="LabelSettings_igycq"]
+font = ExtResource("4_dvmdo")
+font_color = Color(0, 0, 0, 1)
+
 [node name="cashier" type="CharacterBody2D"]
 script = ExtResource("2_al68j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 0)
 sprite_frames = SubResource("SpriteFrames_tlhd5")
 animation = &"talk_transition"
 
 [node name="e_key_animation" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-2.84217e-14, -32)
-scale = Vector2(0.625, 0.625)
+position = Vector2(-1.69407e-21, -34)
+scale = Vector2(0.505001, 0.505001)
 sprite_frames = SubResource("SpriteFrames_nxg5b")
 animation = &"key_animation"
 
 [node name="pickable_area" type="Area2D" parent="."]
+position = Vector2(7, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
 position = Vector2(-7, 37.5)
@@ -316,6 +323,46 @@ shape = SubResource("RectangleShape2D_ptund")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -50.0
+offset_right = 15.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_igycq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u5rhx")
+region_rect = Rect2(28, 192, 282, 55)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 5
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
