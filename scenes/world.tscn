@@ -20407,16 +20407,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="shelf_cornflakes" parent="shelfes/cornflakes" instance=ExtResource("11_se0x2")]
-position = Vector2(-195, 210)
+position = Vector2(-207, 210)
 
 [node name="shelf_cornflakes2" parent="shelfes/cornflakes" instance=ExtResource("11_se0x2")]
-position = Vector2(-166, 210)
+position = Vector2(-173, 210)
 
 [node name="shelf_cornflakes3" parent="shelfes/cornflakes" instance=ExtResource("11_se0x2")]
-position = Vector2(-138, 210)
+position = Vector2(-139, 210)
 
 [node name="shelf_cornflakes4" parent="shelfes/cornflakes" instance=ExtResource("11_se0x2")]
-position = Vector2(-108, 210)
+position = Vector2(-106, 210)
 
 [node name="cheese" type="Control" parent="shelfes"]
 y_sort_enabled = true
@@ -20425,16 +20425,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="shelf_cheese" parent="shelfes/cheese" instance=ExtResource("12_4kykl")]
-position = Vector2(-338, 210)
+position = Vector2(-344, 210)
 
 [node name="shelf_cheese2" parent="shelfes/cheese" instance=ExtResource("12_4kykl")]
-position = Vector2(-305, 210)
+position = Vector2(-310, 210)
 
 [node name="shelf_cheese3" parent="shelfes/cheese" instance=ExtResource("12_4kykl")]
-position = Vector2(-269, 210)
+position = Vector2(-276, 210)
 
 [node name="shelf_cheese4" parent="shelfes/cheese" instance=ExtResource("12_4kykl")]
-position = Vector2(-233, 210)
+position = Vector2(-242, 210)
 
 [node name="chips" type="Control" parent="shelfes"]
 y_sort_enabled = true
