@@ -7,6 +7,7 @@ var is_open = false
 
 # update Inventory
 func _ready():
+	clearInv()
 	inventory.update.connect(update_slots)
 	update_slots()
 	open()
@@ -33,3 +34,9 @@ func open():
 func close():
 	self.visible = false
 	is_open = false
+	
+# clear Inventory in a new run
+func clearInv():
+	# clears every slot in the inventory
+	for slot in inventory.slots:
+		slot.item = null
