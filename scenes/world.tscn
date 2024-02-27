@@ -20599,4 +20599,4 @@ volume_db = 10.0
 pitch_scale = 2.0
 
 [node name="cashier" parent="." instance=ExtResource("57_a6cx6")]
-position = Vector2(116, 105)
+position = Vector2(118, 105)

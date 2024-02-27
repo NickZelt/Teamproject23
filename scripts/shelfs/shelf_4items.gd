@@ -19,6 +19,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("4items")
 		if player_in_area:
 			if Input.is_action_just_pressed("interact"):
+				print("TEST")
 				playPickUpSound()
 				player.collect(item)
 				state = "3items"
