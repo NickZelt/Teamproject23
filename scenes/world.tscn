@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=76 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="1_avy3t"]
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
@@ -59,7 +59,13 @@
 [ext_resource type="PackedScene" uid="uid://mwt3w5ykv27k" path="res://scenes/employies/employee_stein.tscn" id="54_2ljd1"]
 [ext_resource type="AudioStream" uid="uid://csoipn6f8fmjj" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe D.wav" id="54_ffwdq"]
 [ext_resource type="PackedScene" uid="uid://e6pb0mvufgn3" path="res://scenes/employies/employee_benj.tscn" id="55_hhn7h"]
+[ext_resource type="PackedScene" uid="uid://baf2gu4ihhk1t" path="res://scenes/employies/employee_yannik.tscn" id="56_fejc8"]
 [ext_resource type="PackedScene" uid="uid://c64mnm4lytg1p" path="res://scenes/cashier.tscn" id="57_a6cx6"]
+[ext_resource type="PackedScene" uid="uid://dwtiuqwqhc5kn" path="res://scenes/employies/employee_lisa.tscn" id="57_w6duk"]
+[ext_resource type="PackedScene" uid="uid://ci2fdtfr2pske" path="res://scenes/employies/employee_test.tscn" id="58_ts1uf"]
+[ext_resource type="PackedScene" uid="uid://bg5w4ls2bgk5i" path="res://scenes/employies/npc1.tscn" id="59_l221w"]
+[ext_resource type="PackedScene" uid="uid://bpwk6f3enp3ha" path="res://scenes/employies/npc2.tscn" id="60_od0no"]
+[ext_resource type="PackedScene" uid="uid://cxffsrg7mj6k8" path="res://scenes/employies/npc3.tscn" id="61_thagu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6na52"]
 texture = ExtResource("1_avy3t")
@@ -20596,6 +20602,24 @@ position = Vector2(199, 336)
 
 [node name="employee_benj" parent="npcs" instance=ExtResource("55_hhn7h")]
 position = Vector2(-33, 273)
+
+[node name="employee_yannik" parent="npcs" instance=ExtResource("56_fejc8")]
+position = Vector2(54, 235)
+
+[node name="employee_lisa" parent="npcs" instance=ExtResource("57_w6duk")]
+position = Vector2(147, 257)
+
+[node name="employee_test" parent="npcs" instance=ExtResource("58_ts1uf")]
+position = Vector2(290, 186)
+
+[node name="npc1" parent="npcs" instance=ExtResource("59_l221w")]
+position = Vector2(240, 249)
+
+[node name="npc2" parent="npcs" instance=ExtResource("60_od0no")]
+position = Vector2(229, 148)
+
+[node name="npc3" parent="npcs" instance=ExtResource("61_thagu")]
+position = Vector2(-13, 208)
 
 [node name="pickUpItem" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_1p6bg")
