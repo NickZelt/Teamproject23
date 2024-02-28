@@ -40,7 +40,7 @@ func _physics_process(delta):
 		player_alive = false # add death screen
 		health = 0
 		print("Player has been killed.")
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		SceneTransition.change_scene_to_file('res://scenes/main.tscn')
 		self.queue_free()
 
 # Player movement with arrow keys
@@ -199,7 +199,8 @@ func _on_deal_attack_timer_timeout():
 	
 func _on_back_to_main_menu_pressed():
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
-	Main.change_scene.emit("res://scenes/main.tscn")
+	#Main.change_scene.emit("res://scenes/main.tscn")
+	SceneTransition.change_scene_to_file('res://scenes/main.tscn')
 
 # Health system
 func update_health():

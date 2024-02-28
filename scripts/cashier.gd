@@ -38,7 +38,8 @@ func _physics_process(delta):
 			talk(
 				"Danke fuer deinen Einkauf!\nDein Score: " + str(score)
 				)
-			
+			await get_tree().create_timer(5.0).timeout
+			SceneTransition.change_scene_to_file('res://scenes/main.tscn')
 		else:
 			# picks a random text
 			talk(

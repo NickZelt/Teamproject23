@@ -27,7 +27,8 @@ func loopMenuBackground():
 # Play Button
 func _on_play_pressed():
 	#get_tree().change_scene_to_file("res://scenes/game.tscn")
-	Main.change_scene.emit("res://scenes/game.tscn")
+	#Main.change_scene.emit("res://scenes/game.tscn")
+	SceneTransition.change_scene_to_file('res://scenes/game.tscn')
 
 # Option Button
 func _on_options_pressed():
