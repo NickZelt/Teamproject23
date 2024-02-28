@@ -1,9 +1,8 @@
-[gd_scene load_steps=68 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=67 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="1_avy3t"]
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
 [ext_resource type="PackedScene" uid="uid://0x1enrtrhxnk" path="res://scenes/player.tscn" id="3_p4kr6"]
-[ext_resource type="PackedScene" uid="uid://cu461pr2e02ux" path="res://scenes/enemy.tscn" id="4_dces7"]
 [ext_resource type="Texture2D" uid="uid://dvmleknq5g0cq" path="res://assets/art/tiles/16_Grocery_store_32x32.png" id="4_yw400"]
 [ext_resource type="Texture2D" uid="uid://3r8erel5bdkj" path="res://assets/art/tiles/shelfs/Schrank_EckenUndBoeden.png" id="5_5pkuu"]
 [ext_resource type="Texture2D" uid="uid://cnkd5iuf8ikap" path="res://assets/art/animations/animated_door_glass_sliding_32x32.png" id="5_v0iga"]
@@ -19791,24 +19790,6 @@ position = Vector2(1, 134)
 
 [node name="enemies" type="Node" parent="."]
 
-[node name="enemy" parent="enemies" instance=ExtResource("4_dces7")]
-position = Vector2(233, 168)
-
-[node name="enemy2" parent="enemies" instance=ExtResource("4_dces7")]
-position = Vector2(620, 778)
-
-[node name="enemy3" parent="enemies" instance=ExtResource("4_dces7")]
-position = Vector2(356, 558)
-
-[node name="enemy4" parent="enemies" instance=ExtResource("4_dces7")]
-position = Vector2(-421, 212)
-
-[node name="enemy5" parent="enemies" instance=ExtResource("4_dces7")]
-position = Vector2(-75, 515)
-
-[node name="enemy6" parent="enemies" instance=ExtResource("4_dces7")]
-position = Vector2(-420, 803)
-
 [node name="shelfes" type="Control" parent="."]
 y_sort_enabled = true
 layout_mode = 3
@@ -20602,7 +20583,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="employee_nick" parent="npcs" instance=ExtResource("53_10k3c")]
-position = Vector2(-645, 386)
+position = Vector2(-431, 436)
 
 [node name="pickUpItem" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_1p6bg")
