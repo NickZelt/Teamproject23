@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var player_in_area = false
 
-@export var inventory: Inventory
+@onready var inventory: Inventory = preload("res://scripts/inventory/playerInventory.tres")
 
 var bubble_text = ""
 var can_shrink = true
@@ -21,17 +21,32 @@ func _physics_process(delta):
 	
 	# player ends run
 	if player_in_area and Input.is_action_just_pressed("interact"):
-		charAnimation.play("talk")
 		
 		var random = RandomNumberGenerator.new()
 		random.randomize()
 		
-		# picks a random text
-		talk(
-			dialogue_picker(
-				random.randi_range(1, 20)
+		charAnimation.play("talk")
+		
+		# calculate store only when at least one item is in the inventory
+		if inventory.slots[0].item != null:
+			calculateScore(
+				getPlayerInventory()
 			)
-		)
+			
+			
+			talk(
+				dialogue_picker(
+					random.randi_range(100, 105)
+				)
+			)
+		else:
+			# picks a random text
+			talk(
+				dialogue_picker(
+					random.randi_range(1, 20)
+				)
+			)
+	
 	# player is not near the cashier
 	if !player_in_area:
 		charAnimation.play("idle")
@@ -132,6 +147,125 @@ func dialogue_picker(case):
 				return "Tag 2736757...und ich\nstehe noch immer am selben fleck."
 			20:
 				return "Sammeln Sie Payback Punkte?"
+			100:
+				return "Endlich bist du fertig..."
+			101:
+				return "Biep...Bop...Biep...\nich bin eine Kasse..."
+			102:
+				return "Endlich bist du fertig..."
+			103:
+				return "Schlechte Wahl..."
+			104:
+				return "Willst du mit Karte\n oder Lebenszeit bezahlen?"
+			105:
+				return "Auf Wiedersehen. Guten Tod."
 			_:
 				return "Moin!"
 			
+func getPlayerInventory():
+	var playerInventory = {}
+	for slot in inventory.slots.size():
+		if inventory.slots[slot].item != null:
+			playerInventory[str(inventory.slots[slot].item.name)] = inventory.slots[slot].amount
+	return playerInventory
+	
+func calculateScore(playerInv):
+	var amount = 0
+	var score = 0
+	for item in playerInv:
+		amount = playerInv[item]
+		score += getScorePointsForItem(item, amount)
+		
+	print("Score:", score)
+		
+func getScorePointsForItem(item, amount):
+	var scorePoints = 0
+	match item:
+			"cola":
+				scorePoints += 1 * amount
+			"pizza":
+				scorePoints += 2 * amount
+			"sushi":
+				scorePoints += 2 * amount
+			"chips":
+				scorePoints += 2 * amount
+			"cheese":
+				scorePoints += 2 * amount
+			"cornflakes":
+				scorePoints += 2 * amount
+			"cookies":
+				scorePoints += 1 * amount
+			"brokkoli":
+				scorePoints += 3 * amount
+			"potato":
+				scorePoints += 2 * amount
+			"eggs":
+				scorePoints += 2 * amount
+			"suncreme":
+				scorePoints += 5 * amount
+			"paperbox":
+				scorePoints += 4 * amount
+			"duck":
+				scorePoints += 1 * amount
+			"teddy":
+				scorePoints += 1 * amount
+			"heilstein":
+				scorePoints += 6 * amount
+			"book":
+				scorePoints += 2 * amount
+			"console":
+				scorePoints += 6 * amount
+			"gitarre":
+				scorePoints += 5 * amount
+			"flower":
+				scorePoints += 10 * amount
+			"candle":
+				scorePoints += 10 * amount
+			"puppe":
+				scorePoints += 8 * amount
+			"plant":
+				scorePoints += 5 * amount
+			"toothbrush":
+				scorePoints += 7 * amount
+			"screwdriver":
+				scorePoints += 7 * amount
+			"melon":
+				scorePoints += 3 * amount
+			"milk":
+				scorePoints += 20 * amount
+			"flour":
+				scorePoints += 20 * amount
+			"marmelade":
+				scorePoints += 50 * amount
+			"ketchup":
+				scorePoints += 30 * amount
+			"mushroom":
+				scorePoints += 7 * amount
+			"ramen":
+				scorePoints += 2 * amount
+			"banana":
+				scorePoints += 3 * amount
+			"aubergine":
+				scorePoints += 2 * amount
+			"tomate":
+				scorePoints += 2 * amount
+			"salad":
+				scorePoints += 3 * amount
+			"waschmittel":
+				scorePoints += 15 * amount
+			"waterbottle":
+				scorePoints += 3 * amount
+			"donut":
+				scorePoints += 15 * amount
+			"bread":
+				scorePoints += 15 * amount
+			"chilli":
+				scorePoints += 100 * amount
+			"garlic":
+				scorePoints += 100 * amount
+			"apple":
+				scorePoints += 100 * amount
+			"unoReverse":
+				scorePoints += 1000 * amount
+				
+	return scorePoints
