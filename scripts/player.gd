@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var inventory: Inventory
 
-
 # max Movement Speed of the player
 const maxSpeed = 200
 const acceleration = 5000
@@ -18,7 +17,6 @@ var health = 100
 var player_alive = true
 
 var attack_in_progress = false
-
 
 # input by player
 var input = Vector2.ZERO
@@ -141,6 +139,8 @@ func play_animation(movement):
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = true
+		
+	
 
 
 func _on_player_hitbox_body_exited(body):

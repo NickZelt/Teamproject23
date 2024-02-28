@@ -11,9 +11,33 @@ var current_text = ""
 
 @onready var lbltext = get_node("VBoxContainer/Label")
 @onready var ninerect = get_node("VBoxContainer/Label/NinePatchRect")
-@onready var timer = get_node("Timer")
 
 var do_close = false
+
+@onready var timerLabelMinutes = $timerLabelMinutes
+@onready var timerLabelSeconds = $timerLabelSeconds
+@onready var timerLabelMsecs = $timerLabelMsecs
+@onready var timer = $Timer
+
+var time: float = 0.0
+var minutes: int = 0
+var seconds: int = 0
+var msec: int = 0
+var timer_on = false
+
+# timer counter
+func _process(delta) -> void:
+	time += delta
+	msec = fmod(time, 1) * 100
+	seconds = fmod(time, 60)
+	minutes = fmod(time, 3600) / 60
+	timerLabelMinutes.text = "%02d:" % minutes
+	timerLabelSeconds.text = "%02d:" % seconds
+	timerLabelMsecs.text = "%03d" % msec
+
+# stop _process == stop timer
+func stop() -> void:
+	set_process(false)
 
 func _physics_process(delta):
 	var charAnimation = $AnimatedSprite2D
@@ -29,10 +53,12 @@ func _physics_process(delta):
 		
 		# calculate score only when at least one item is in the inventory
 		if inventory.slots[0].item != null:
+			
+			# stop timer
+			stop()
+			
 			# calculate score
-			score = calculateScore(
-				getPlayerInventory()
-			)
+			score = calculateScore( getPlayerInventory() )
 			
 			# dialogue
 			talk(
@@ -270,3 +296,6 @@ func getScorePointsForItem(item, amount):
 				scorePoints += 1000 * amount
 				
 	return scorePoints
+
+func cashier():
+	pass

@@ -20,9 +20,12 @@ config/icon="res://assets/godot/icon.svg"
 Game="*res://scripts/game.gd"
 Main="*res://scripts/main.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+GlobalTimer="*res://scenes/timer.tscn"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/initial_screen=2
 window/stretch/mode="viewport"
 window/handheld/orientation=1

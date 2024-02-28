@@ -277,10 +277,10 @@ ignore_rotation = false
 zoom = Vector2(2, 2)
 
 [node name="BackToMainMenu" type="Button" parent="Camera2D"]
-offset_left = -290.0
-offset_top = -165.0
-offset_right = 12.0
-offset_bottom = -134.0
+offset_left = -481.0
+offset_top = -270.0
+offset_right = -179.0
+offset_bottom = -239.0
 theme_override_fonts/font = ExtResource("3_0ictk")
 theme_override_font_sizes/font_size = 25
 text = "Zurück zum Hauptmenü
@@ -304,9 +304,9 @@ anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 offset_left = -106.0
-offset_top = 117.0
+offset_top = 229.0
 offset_right = -106.0
-offset_bottom = 117.0
+offset_bottom = 229.0
 grow_horizontal = 0
 grow_vertical = 0
 

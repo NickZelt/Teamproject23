@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c64mnm4lytg1p"]
+[gd_scene load_steps=49 format=3 uid="uid://c64mnm4lytg1p"]
 
 [ext_resource type="Texture2D" uid="uid://o87nni5tilpu" path="res://assets/art/characters/npcs/Sprite_Skassierer.png" id="1_j1ju4"]
 [ext_resource type="Script" path="res://scripts/cashier.gd" id="2_al68j"]
@@ -294,9 +294,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptund"]
 size = Vector2(22, 67)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy5tp"]
+size = Vector2(64, 85)
+
 [sub_resource type="LabelSettings" id="LabelSettings_igycq"]
 font = ExtResource("4_dvmdo")
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtgmk"]
+font = ExtResource("4_dvmdo")
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="cashier" type="CharacterBody2D"]
 script = ExtResource("2_al68j")
@@ -322,6 +331,9 @@ shape = SubResource("RectangleShape2D_ptund")
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 19)
+shape = SubResource("RectangleShape2D_vy5tp")
+one_way_collision = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -360,7 +372,41 @@ patch_margin_right = 10
 patch_margin_bottom = 5
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
+
+[node name="timerLabelMinutes" type="Label" parent="."]
+z_index = 99
+offset_left = -92.0
+offset_top = -90.0
+offset_right = -12.0
+offset_bottom = -55.0
+text = "Min
+"
+label_settings = SubResource("LabelSettings_mtgmk")
+horizontal_alignment = 2
+vertical_alignment = 3
+
+[node name="timerLabelSeconds" type="Label" parent="."]
+z_index = 99
+offset_left = -71.0
+offset_top = -90.0
+offset_right = 9.0
+offset_bottom = -55.0
+text = "Sec"
+label_settings = SubResource("LabelSettings_mtgmk")
+horizontal_alignment = 2
+vertical_alignment = 3
+
+[node name="timerLabelMsecs" type="Label" parent="."]
+z_index = 99
+offset_left = -46.0
+offset_top = -90.0
+offset_right = 34.0
+offset_bottom = -55.0
+text = "Msec
+"
+label_settings = SubResource("LabelSettings_mtgmk")
+horizontal_alignment = 2
+vertical_alignment = 3
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]

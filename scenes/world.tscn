@@ -20566,7 +20566,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="collectable_unoReverse" parent="collectibles/uno" instance=ExtResource("52_qyo6m")]
-position = Vector2(868, 808)
+position = Vector2(868, 815)
 
 [node name="00000" type="Control" parent="."]
 y_sort_enabled = true
