@@ -21,24 +21,24 @@ func _physics_process(delta):
 	
 	# player ends run
 	if player_in_area and Input.is_action_just_pressed("interact"):
-		
+		var score = 0
 		var random = RandomNumberGenerator.new()
 		random.randomize()
 		
 		charAnimation.play("talk")
 		
-		# calculate store only when at least one item is in the inventory
+		# calculate score only when at least one item is in the inventory
 		if inventory.slots[0].item != null:
-			calculateScore(
+			# calculate score
+			score = calculateScore(
 				getPlayerInventory()
 			)
 			
-			
+			# dialogue
 			talk(
-				dialogue_picker(
-					random.randi_range(100, 105)
+				"Danke fuer deinen Einkauf!\nDein Score: " + str(score)
 				)
-			)
+			
 		else:
 			# picks a random text
 			talk(
@@ -176,7 +176,7 @@ func calculateScore(playerInv):
 		amount = playerInv[item]
 		score += getScorePointsForItem(item, amount)
 		
-	print("Score:", score)
+	return score
 		
 func getScorePointsForItem(item, amount):
 	var scorePoints = 0
