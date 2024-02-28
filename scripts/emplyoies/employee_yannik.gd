@@ -30,7 +30,7 @@ func _physics_process(delta):
 		# picks a random text
 		talk(
 			dialogue_picker(
-				random.randi_range(1, 1)
+				random.randi_range(1, 14)
 			)
 		)
 		
@@ -91,33 +91,33 @@ func _on_timer_timeout():
 func dialogue_picker(case):
 	match case:
 			1:
-				return "Was geeeht!"
+				return "Jo, was geht?"
 			2:
-				return ""
+				return "FÜR DIE DEMOKRATIE!!!"
 			3:
-				return ""
+				return "Ich bin der Erfinder\ndieser Konsolen..."
 			4:
-				return ""
+				return "Ich habe gutes Zeug im Lager...\nhast du bock?"
 			5:
-				return ""
+				return "Die Musik macht mich verückt.\nDich etwa nicht?"
 			6:
-				return ""
+				return "Manche Menschen kannst\ndu echt in die Tonne kloppen..."
 			7:
-				return ""
+				return "Wurstwasser schmeckt leckaaaaaa."
 			8:
-				return ""
+				return "Bock auf ne Runde\nDestiny oder Halo?"
 			9:
-				return ""
+				return "Indie Spiele sind\ndie besten Spiele!"
 			10:
-				return ""
+				return "FICK AAAAAAAAA-Games."
 			11:
-				return ""
+				return "Spielentwickler denken auch\nsind die die Größten..."
 			12:
-				return ""
+				return "Ich bin mir ziemlich sicher\ndas wir in einer Simulation leben."
 			13:
-				return ""
+				return "Gehts dir gut?\nSiehst so...wütend aus."
 			14:
-				return ""
+				return "Pass bloß auf\nmit deinem Knüppel da."
 			15:
 				return ""
 			16:

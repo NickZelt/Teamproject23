@@ -62,7 +62,7 @@ func _physics_process(delta):
 			
 			# dialogue
 			talk(
-				"Danke fuer deinen Einkauf!\nDein Score: " + str(score)
+				"Danke für deinen Einkauf!\nDein Score: " + str(score)
 				)
 			await get_tree().create_timer(5.0).timeout
 			SceneTransition.change_scene_to_file('res://scenes/main.tscn')
@@ -147,7 +147,7 @@ func dialogue_picker(case):
 			6:
 				return "Du bist nicht hässlich, \nnur visuell herausfordernd."
 			7:
-				return "FICK DIE AFD!!!"
+				return "Ich...sehe es...\nDAS LICHT!"
 			8:
 				return "Dumm. Dümmer. Du."
 			9:
@@ -159,11 +159,11 @@ func dialogue_picker(case):
 			12:
 				return "Du hast irgendwie \ndas gewisse...Nichts."
 			13:
-				return "Es gibt immer einen\ngrößeren Fisch."
+				return "Mein Leben ist wie\nein haufen Sch..."
 			14:
 				return "Dieser Schmerz...\n er hört nicht auf..."
 			15:
-				return "EXECUTE ORDER 66!!! (<"
+				return "Der Schmerz...\n er wird nie vergehen."
 			16:
 				return "Einmal mit guten Studenten\n einkaufen gehen..."
 			17:

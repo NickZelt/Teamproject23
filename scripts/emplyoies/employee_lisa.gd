@@ -30,7 +30,7 @@ func _physics_process(delta):
 		# picks a random text
 		talk(
 			dialogue_picker(
-				random.randi_range(1, 1)
+				random.randi_range(1, 10)
 			)
 		)
 		
@@ -93,23 +93,23 @@ func dialogue_picker(case):
 			1:
 				return "Hi!"
 			2:
-				return ""
+				return "Die Kisten sind echt\nverdammt Schwer..."
 			3:
-				return ""
+				return "Bitte stör mich nicht..."
 			4:
-				return ""
+				return "Kann ich dir weiterhelfen?"
 			5:
-				return ""
+				return "Wasser ist nass."
 			6:
-				return ""
+				return "Gerade war da eine Spinn\nin der Bananenkiste..."
 			7:
-				return ""
+				return "Haben wir leider nicht\nmehr auf Lager."
 			8:
-				return ""
+				return "Juckt mich nicht."
 			9:
-				return ""
+				return "Toll."
 			10:
-				return ""
+				return "Aha."
 			11:
 				return ""
 			12:

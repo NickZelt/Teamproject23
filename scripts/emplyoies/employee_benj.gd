@@ -19,7 +19,7 @@ func _physics_process(delta):
 	var charAnimation = $AnimatedSprite2D
 	var key_animation = $e_key_animation
 	
-	#charAnimation.flip_h = true
+	charAnimation.flip_h = true
 	charAnimation.play("idle")
 	
 	# player ends run
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		# picks a random text
 		talk(
 			dialogue_picker(
-				random.randi_range(1, 1)
+				random.randi_range(1, 10)
 			)
 		)
 		
@@ -93,23 +93,23 @@ func dialogue_picker(case):
 			1:
 				return "Halluuu!"
 			2:
-				return ""
+				return "Warum muss ich das\neigentlich wegwischen?"
 			3:
-				return ""
+				return "Hier ist wer gestorben\nbitte geh weg."
 			4:
-				return ""
+				return "So schnell endet man\nals Pfütze auf dem Boden."
 			5:
-				return ""
+				return "Ich freu mich schoncauf den Feierabend."
 			6:
-				return ""
+				return "Dann geh doch zu Netto!!!"
 			7:
-				return ""
+				return "Ahhhhhhhhhh...."
 			8:
-				return ""
+				return "Wie kann ich helfen?"
 			9:
-				return ""
+				return "Wisch, wasch,\nwischididudu."
 			10:
-				return ""
+				return "Die Hölle existiert...\ngenau hier."
 			11:
 				return ""
 			12:

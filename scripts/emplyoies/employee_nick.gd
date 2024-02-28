@@ -105,7 +105,7 @@ func dialogue_picker(case):
 			7:
 				return "Hast du Eis? Nein? \nDann hau ab."
 			8:
-				return "Pups."
+				return "FICK DIE AFD!!!"
 			9:
 				return "Dummheit kennt keine Grenzen,\naber sehr viele Leute."
 			10:

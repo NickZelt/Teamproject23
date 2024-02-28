@@ -30,7 +30,7 @@ func _physics_process(delta):
 		# picks a random text
 		talk(
 			dialogue_picker(
-				random.randi_range(1, 1)
+				random.randi_range(1, 10)
 			)
 		)
 		
@@ -93,23 +93,23 @@ func dialogue_picker(case):
 			1:
 				return "Ja, bitte?"
 			2:
-				return ""
+				return "Hallo!"
 			3:
-				return ""
+				return "Hast du gefurzt?"
 			4:
-				return ""
+				return "Geiler Knüppel\nin deiner Hand..."
 			5:
-				return ""
+				return "Kann man Waschmittel\nessen?"
 			6:
-				return ""
+				return "Ich muss pupsen...\nRENN!!!"
 			7:
-				return ""
+				return "Nutella mit oder\nohne Butter?"
 			8:
-				return ""
+				return "Morgen muss ich wieder arbeiten..."
 			9:
-				return ""
+				return "Lalalalalalalalala..."
 			10:
-				return ""
+				return "Heilge Makrele!"
 			11:
 				return ""
 			12:

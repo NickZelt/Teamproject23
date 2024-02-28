@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=77 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="1_avy3t"]
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
@@ -52,6 +52,7 @@
 [ext_resource type="AudioStream" uid="uid://tkja4r45j6od" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe A.wav" id="51_2lr7v"]
 [ext_resource type="PackedScene" uid="uid://8r70vho67pe1" path="res://scenes/collectibles/collectable_garlic.tscn" id="51_q58ud"]
 [ext_resource type="AudioStream" uid="uid://bc5ejepd24cii" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe B.wav" id="52_37vk8"]
+[ext_resource type="PackedScene" uid="uid://cu461pr2e02ux" path="res://scenes/enemy.tscn" id="52_mwe6e"]
 [ext_resource type="PackedScene" uid="uid://cegolp28gajlt" path="res://scenes/collectibles/collectable_unoReverse.tscn" id="52_qyo6m"]
 [ext_resource type="PackedScene" uid="uid://camtd5u4tce0i" path="res://scenes/employies/employee_marlene.tscn" id="53_6whuv"]
 [ext_resource type="PackedScene" uid="uid://cdysb5h0ly0ra" path="res://scenes/employies/employee_nick.tscn" id="53_10k3c"]
@@ -19797,8 +19798,6 @@ layer_9/tile_data = PackedInt32Array(589826, 393218, 60, 589825, 393218, 60, 589
 [node name="player" parent="." instance=ExtResource("3_p4kr6")]
 position = Vector2(1, 134)
 
-[node name="enemies" type="Node" parent="."]
-
 [node name="shelfes" type="Control" parent="."]
 y_sort_enabled = true
 layout_mode = 3
@@ -20575,14 +20574,56 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="collectable_unoReverse" parent="collectibles/uno" instance=ExtResource("52_qyo6m")]
-position = Vector2(868, 815)
+position = Vector2(863, 841)
 
-[node name="00000" type="Control" parent="."]
+[node name="enemies" type="Control" parent="."]
 y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="enemy" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(-675, 632)
+
+[node name="enemy2" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(-488, 426)
+
+[node name="enemy3" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(-138, 378)
+
+[node name="enemy4" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(-60, 229)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(168, 295)
+
+[node name="enemy6" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(137, 628)
+
+[node name="enemy7" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(688, 896)
+
+[node name="enemy8" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(428, 761)
+
+[node name="enemy9" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(466, 633)
+
+[node name="enemy10" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(846, 505)
+
+[node name="enemy11" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(512, 507)
+
+[node name="enemy12" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(583, 237)
+
+[node name="enemy13" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(113, 851)
+
+[node name="enemy14" parent="enemies" instance=ExtResource("52_mwe6e")]
+position = Vector2(222, 166)
 
 [node name="npcs" type="Control" parent="."]
 y_sort_enabled = true
@@ -20592,34 +20633,67 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="employee_nick" parent="npcs" instance=ExtResource("53_10k3c")]
-position = Vector2(-646, 396)
+position = Vector2(-646, 394)
 
 [node name="employee_marlene" parent="npcs" instance=ExtResource("53_6whuv")]
 position = Vector2(-385, 224)
 
 [node name="employee_stein" parent="npcs" instance=ExtResource("54_2ljd1")]
-position = Vector2(199, 336)
+position = Vector2(876, 881)
 
 [node name="employee_benj" parent="npcs" instance=ExtResource("55_hhn7h")]
-position = Vector2(-33, 273)
+position = Vector2(-589, 775)
 
 [node name="employee_yannik" parent="npcs" instance=ExtResource("56_fejc8")]
-position = Vector2(54, 235)
+position = Vector2(-469, 878)
 
 [node name="employee_lisa" parent="npcs" instance=ExtResource("57_w6duk")]
-position = Vector2(147, 257)
+position = Vector2(325, 374)
 
 [node name="employee_test" parent="npcs" instance=ExtResource("58_ts1uf")]
-position = Vector2(290, 186)
+position = Vector2(639, 178)
 
 [node name="npc1" parent="npcs" instance=ExtResource("59_l221w")]
-position = Vector2(240, 249)
+position = Vector2(495, 187)
+
+[node name="npc14" parent="npcs" instance=ExtResource("59_l221w")]
+position = Vector2(863, 757)
+
+[node name="npc4" parent="npcs" instance=ExtResource("59_l221w")]
+position = Vector2(74, 530)
+
+[node name="npc5" parent="npcs" instance=ExtResource("59_l221w")]
+position = Vector2(-196, 896)
+
+[node name="npc11" parent="npcs" instance=ExtResource("59_l221w")]
+position = Vector2(-504, 512)
 
 [node name="npc2" parent="npcs" instance=ExtResource("60_od0no")]
-position = Vector2(229, 148)
+position = Vector2(629, 472)
+
+[node name="npc6" parent="npcs" instance=ExtResource("60_od0no")]
+position = Vector2(-518, 139)
+
+[node name="npc10" parent="npcs" instance=ExtResource("60_od0no")]
+position = Vector2(-384, 623)
+
+[node name="npc7" parent="npcs" instance=ExtResource("60_od0no")]
+position = Vector2(158, 394)
+
+[node name="npc13" parent="npcs" instance=ExtResource("60_od0no")]
+position = Vector2(296, 802)
 
 [node name="npc3" parent="npcs" instance=ExtResource("61_thagu")]
-position = Vector2(-13, 208)
+position = Vector2(-449, 328)
+
+[node name="npc8" parent="npcs" instance=ExtResource("61_thagu")]
+position = Vector2(704, 111)
+
+[node name="npc9" parent="npcs" instance=ExtResource("61_thagu")]
+position = Vector2(576, 649)
+
+[node name="npc12" parent="npcs" instance=ExtResource("61_thagu")]
+position = Vector2(-32, 721)
 
 [node name="pickUpItem" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_1p6bg")

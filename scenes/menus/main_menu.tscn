@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dos7dlsh6ikrg"]
+[gd_scene load_steps=13 format=3 uid="uid://dos7dlsh6ikrg"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gds5f"]
 [ext_resource type="VideoStream" path="res://assets/others/main_menu1.ogv" id="2_iq12j"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://4c2y0qlocwh0" path="res://assets/fonts/upheavtt.ttf" id="5_0i0d2"]
 [ext_resource type="AudioStream" uid="uid://bxcpy6nqpf6jq" path="res://assets/sound/music/mainMenu/Chiptune Vol2 Casual Main.wav" id="5_qusyp"]
 [ext_resource type="AudioStream" uid="uid://80cvyekvn0rg" path="res://assets/sound/music/mainMenu/Chiptune Vol3 Candy Main.wav" id="6_yjvq8"]
+[ext_resource type="FontFile" uid="uid://ct16kqea65wrw" path="res://assets/fonts/ThaleahFat.ttf" id="8_cdbdn"]
 [ext_resource type="VideoStream" path="res://assets/others/Credits_teamprojekt.ogv" id="9_dkhhn"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jqade"]
@@ -20,6 +21,9 @@ stream_2/stream = ExtResource("5_qusyp")
 stream_2/weight = 1.0
 stream_3/stream = ExtResource("6_yjvq8")
 stream_3/weight = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rgly"]
+font = ExtResource("8_cdbdn")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -57,6 +61,7 @@ autoplay = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_jqade")
 volume_db = -5.0
+autoplay = true
 
 [node name="TitleText" type="Label" parent="."]
 layout_mode = 1
@@ -81,13 +86,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -107.0
-offset_top = -32.0
-offset_right = -8.0
-offset_bottom = -6.0
+offset_left = -91.0
+offset_top = -17.0
+offset_right = 8.0
+offset_bottom = 9.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Version 0.2.1"
+text = "Version 0.3"
+label_settings = SubResource("LabelSettings_8rgly")
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 1

@@ -316,6 +316,7 @@ sprite_frames = SubResource("SpriteFrames_tlhd5")
 animation = &"talk_transition"
 
 [node name="e_key_animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-1.69407e-21, -34)
 scale = Vector2(0.505001, 0.505001)
 sprite_frames = SubResource("SpriteFrames_nxg5b")
