@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var inventory: Inventory
 
-
 # max Movement Speed of the player
 const maxSpeed = 200
 const acceleration = 5000
@@ -18,7 +17,6 @@ var health = 100
 var player_alive = true
 
 var attack_in_progress = false
-
 
 # input by player
 var input = Vector2.ZERO
@@ -40,7 +38,7 @@ func _physics_process(delta):
 		player_alive = false # add death screen
 		health = 0
 		print("Player has been killed.")
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		SceneTransition.change_scene_to_file('res://scenes/main.tscn')
 		self.queue_free()
 
 # Player movement with arrow keys
@@ -141,6 +139,8 @@ func play_animation(movement):
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = true
+		
+	
 
 
 func _on_player_hitbox_body_exited(body):
@@ -199,7 +199,8 @@ func _on_deal_attack_timer_timeout():
 	
 func _on_back_to_main_menu_pressed():
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
-	Main.change_scene.emit("res://scenes/main.tscn")
+	#Main.change_scene.emit("res://scenes/main.tscn")
+	SceneTransition.change_scene_to_file('res://scenes/main.tscn')
 
 # Health system
 func update_health():
