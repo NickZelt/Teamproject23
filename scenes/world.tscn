@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://c4asm3gq14cbp"]
+[gd_scene load_steps=69 format=3 uid="uid://c4asm3gq14cbp"]
 
 [ext_resource type="Texture2D" uid="uid://cpf4x44sbeie6" path="res://assets/art/tiles/shelfs/Schrank_LeerBlau.png" id="1_avy3t"]
 [ext_resource type="Texture2D" uid="uid://bs2inl2gpywkh" path="res://assets/art/tiles/Room_Builder_32x32.png" id="2_y6mg7"]
@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://camtd5u4tce0i" path="res://scenes/employies/employee_marlene.tscn" id="53_6whuv"]
 [ext_resource type="PackedScene" uid="uid://cdysb5h0ly0ra" path="res://scenes/employies/employee_nick.tscn" id="53_10k3c"]
 [ext_resource type="AudioStream" uid="uid://b638n07kendde" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe C.wav" id="53_ggtg2"]
+[ext_resource type="PackedScene" uid="uid://mwt3w5ykv27k" path="res://scenes/employies/employee_stein.tscn" id="54_2ljd1"]
 [ext_resource type="AudioStream" uid="uid://csoipn6f8fmjj" path="res://assets/sound/sfx/itemPickUp/Shirt Wipe D.wav" id="54_ffwdq"]
 [ext_resource type="PackedScene" uid="uid://c64mnm4lytg1p" path="res://scenes/cashier.tscn" id="57_a6cx6"]
 
@@ -20588,6 +20589,9 @@ position = Vector2(-646, 396)
 
 [node name="employee_marlene" parent="npcs" instance=ExtResource("53_6whuv")]
 position = Vector2(-385, 224)
+
+[node name="employee_stein" parent="npcs" instance=ExtResource("54_2ljd1")]
+position = Vector2(199, 336)
 
 [node name="pickUpItem" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_1p6bg")

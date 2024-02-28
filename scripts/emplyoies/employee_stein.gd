@@ -91,7 +91,7 @@ func _on_timer_timeout():
 func dialogue_picker(case):
 	match case:
 			1:
-				return "Hallo."
+				return "Tach!"
 			2:
 				return ""
 			3:
