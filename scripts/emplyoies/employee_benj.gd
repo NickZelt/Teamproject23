@@ -99,7 +99,7 @@ func dialogue_picker(case):
 			4:
 				return "So schnell endet man\nals Pfütze auf dem Boden."
 			5:
-				return "Ich freu mich schoncauf den Feierabend."
+				return "Ich freu mich schon auf den Feierabend."
 			6:
 				return "Dann geh doch zu Netto!!!"
 			7:

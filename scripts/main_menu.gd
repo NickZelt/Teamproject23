@@ -39,6 +39,7 @@ func _on_options_pressed():
 func _on_credits_pressed():
 	$MainMenu.hide()
 	$Credits.show()
+	$Credits/Credits.play()
 
 # Quit game Button
 func _on_quit_pressed():
