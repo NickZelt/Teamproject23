@@ -2,31 +2,31 @@
 **Student project at the Harz University of Applied Sciences (Media Informatics 3rd semester).**
 
 
-## **Teachers:**
+## **Teachers**
 + Dominik Wilhelm
 + Hendrik Hihn
 	
-## Project manager:<br>
+## Project manager<br>
 + Marlene Lotz
 
-## Programming:
+## Programming
 + Nick Zelt
 	
-## Art:
+## Art
 + Jessica Fricke (Lead)
 + Benjamin Calakovic
 + Lisa Magul
 + Marlene Lotz
 + Yannik Wirtz
 	
-## Game-Design:
+## Game-Design
 + Yannik Wirtz
 	
-## Writing:
+## Writing
 + Benjamin Calakovic
 + Lisa Magul
 
-## Support for Art and Writing:
+## Support for Art and Writing
 + Oskar Krawaczynski	
 
 
